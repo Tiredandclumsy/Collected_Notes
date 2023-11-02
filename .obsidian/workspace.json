@@ -8,27 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "28d446a04e5f9b37",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
-          },
-          {
-            "id": "2187d688a40fe7e4",
+            "id": "f5347e4322298994",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "op-amp.md",
+                "file": "function.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -102,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "op-amp.md",
+                "file": "function.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "op-amp.md",
+                "file": "function.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -142,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "op-amp.md"
+                "file": "function.md"
               }
             }
           }
@@ -150,7 +141,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -162,32 +154,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2187d688a40fe7e4",
+  "active": "f5347e4322298994",
   "lastOpenFiles": [
-    "function.md",
+    "goroutine.md",
+    "channel.md",
+    "Go.md",
     "relation.md",
     "modular numbers.md",
+    "mutual exclusion.md",
+    "Message Passing Model.md",
+    "Shared Memory Model.md",
+    "deadlock.md",
+    "race condition.md",
+    "concurrency.md",
+    "parallel processing.md",
     "sorting algorithm.md",
-    "Insertion sort.md",
-    "optimal substructure.md",
-    "order.md",
-    "Quicksort.md",
-    "Mergesort.md",
-    "Radix sort.md",
-    "Countingsort.md",
-    "Heapsort.md",
-    "Quicksort.md.partial",
-    "divide-and-conquer algorithm.md",
-    "lowest common multiple.md",
-    "op-amp.md",
-    "pole cutting algorithm.md",
-    "radix.md",
     "random variable.md",
+    "Radix sort.md",
+    "radix.md",
+    "Quicksort.md",
+    "pole cutting algorithm.md",
+    "optimal substructure.md",
+    "op-amp.md",
+    "Mergesort.md",
+    "lowest common multiple.md",
+    "Heapsort.md",
+    "Insertion sort.md",
     "group.md",
-    "Bayes' Rule.md",
-    "dynamic programming.md",
-    "virtual short-circuit.md",
-    "Rules of Probability.md",
-    "Group-DESKTOP-V44UH9Q.md"
+    "function.md",
+    "Quicksort.md.partial"
   ]
 }

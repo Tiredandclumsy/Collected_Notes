@@ -1,6 +1,6 @@
 A relation is a subset of the cartesian product of a set, $R \subseteq A \times A$, or of two sets, $A \times B$. As such it consists of ordered pairs of objects. If $(x,y) \in R$ then it is said that $R$ holds for $x,y$
 
-For example, $<$ is an order relation on $\mathbb N$, equal to $\{(x,y) : x,y \in \mathbb N , x < y\}$
+For example, $<$ is an [[relation#Order relation|order relation]] on $\mathbb N$, equal to $\{(x,y) : x,y \in \mathbb N , x < y\}$
 
 # Notation
 A relation $R$ is commonly expressed where $R(x,y)$ means $(x,y) \in R$.
@@ -18,7 +18,7 @@ An order relation represents a metric by which elements of a set may be placed i
 - Reflexivity: $\forall x \in A, R(x,x)$
 - Transitivity: $\forall x,y,z \in A, R(x,y) \land R(y,z) \rightarrow R(x,z)$
 - Anti-symmetry: $\forall x,y \in A, R(x,y) \land R(y,x) \rightarrow x = y$
-Most ordering are partial orderings. An ordering $R$ on $A$ is complete if $\forall x,y \in A, R(x,y) \lor R(y,x)$
+An ordering $R$ on $A$ is complete if $\forall x,y \in A, R(x,y) \lor R(y,x)$, and if not it is partial. Most ordering are partial orderings.
 
 # Hasse Diagrams
 A Hasse Diagram is a visualisation of a relation where every element in the set is represented, and $R(x,y)$ holding is represented as a line from $x$ to $y$. However, no reflexive relations are shown, and neither are any relations that can be inferred from transitivity. The direction of each relation between elements is upwards, and no arrowheads or other means of expressing direction are used.
