@@ -1,4 +1,4 @@
-A relation is a subset of the cartesian product of a set, $R \subseteq A \times A$, or of two sets, $A \times B$. As such it consists of ordered pairs of objects. If $(x,y) \in R$ then it is said that $R$ holds for $x,y$
+A relation is a subset of the Cartesian product of a set, $R \subseteq A \times A$, or of two sets, $A \times B$. As such it consists of ordered pairs of objects. If $(x,y) \in R$ then it is said that $R$ holds for $x,y$
 
 For example, $<$ is an [[relation#Order relation|order relation]] on $\mathbb N$, equal to $\{(x,y) : x,y \in \mathbb N , x < y\}$
 
