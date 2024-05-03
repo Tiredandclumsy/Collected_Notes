@@ -6,3 +6,5 @@ A critical section is a section of code in a concurrent program that allows acce
 # Methods
 ## Mutex lock
 A Mutex lock (short for mutual exclusion lock) ensures mutual exclusion via 'locking' a critical section. Whenever a thread requires access to the section it is given a unique key, or token, that permits it to enter the section. If no key is available, the thread waits or is put to sleep until a/the key becomes available.
+
+#concurrency

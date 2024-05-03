@@ -4,3 +4,5 @@ Bayes' rule states that $$P(B|A) = P(A|B) \frac{P(B)}{P(A)}$$It is useful when c
 The posterior $P(B|A)$: The probability of event given evidence
 The prior $P(B)$: The probability of the event occurring
 The likelihood $P(A|B)$: The probability that evidence is seen given the event
+
+#statistics

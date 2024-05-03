@@ -34,3 +34,5 @@ A greatest lower bound of $A$ $\text{inf} A$ is such that for all lower bounds $
 
 It can be noted that bounds must be related to all elements in the set, but maximal and minimal elements do not.
 
+
+#discrete-maths

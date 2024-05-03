@@ -7,3 +7,4 @@ Compute $r_2$ as the remainder of $y \div r_1$
 Compute $r_n$ as the remainder of $r_{n-2} \div r_{n-1}$ until $r_i = 0$ is found
 The LCM is given by $r_{i-1}$
 
+#mathematics

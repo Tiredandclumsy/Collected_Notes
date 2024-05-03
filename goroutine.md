@@ -8,3 +8,5 @@ Goroutines are logically [[concurrency|concurrent]], but may not be physically s
 Every goroutine has its own [[stack]]. 
 
 `main()` is a goroutine, and when it terminates any other goroutine is also temrinated. Therefore starting a goroutine as the last command in `main()` will achieve no result. 
+
+#concurrency

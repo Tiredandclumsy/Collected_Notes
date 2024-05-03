@@ -25,3 +25,5 @@ $h \le \log \left(\left ( \frac n e \right ) ^n \right)$
 $h \le n \log \left ( \frac n e \right )$
 $h \in O(n \log n)$
 Since $h$ is the number of comparisons in a given path to a solution, $h$ is equal to the number of comparisons required to sort any given array. A comparison-based sorting algorithm therefore runs in $\Omega( n \log n)$
+
+#algorithms

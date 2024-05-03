@@ -35,3 +35,5 @@ COUNTINGSORT:
 
 # Runtime Analysis
 The first and last loop run in $O(n)$ by inspection, and the second in $O(k)$. Therefore the algorithm runs in $O(n + k)$.  If $k \in O(n)$ then Countingsort runs in $O(n)$.
+
+#algorithms

@@ -74,3 +74,5 @@ Therefore, with $O(log n)$ levels running in $O(n)$ time, the best case is $O(n 
 The $O(n \log n)$ runtime is preserved for a wide range of pivots around the median. Additionally, if such an optimal pivot only occurs every $k$ iterations, the algorithm will simply run in $k n \log n$, preserving $O(n \log n)$
 
 There are algorithms for finding the median in $O(n)$ time, and so these could be used to select a pivot while retaining, and indeed ensuring, $O(n \log n)$. However they are computationally intensive and tend not to be efficient in practice. Instead, a random value can be selected by exchanging `A[n-1]` with some value `A[i]`. This also preserves $O(n \log n)$ for reasons related to those above, and is much faster than a median approach for pivot selection, making it ideal for practical implementation.
+
+#algorithms

@@ -39,3 +39,5 @@ The proof is as follows:
 # Common groups
 Certain common groups have standard names.
 One such commonly used group is the set of all non-singular $n \times n$ matrices under matrix multiplication, known as the general linear group or $GL(n)$
+
+#discrete-maths

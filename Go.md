@@ -31,3 +31,5 @@ newArray := make([]int, desiredLength)
 # Communication
 Go supports the [[Message Passing Model]] by default, as described above. However, the [[Shared Memory Model]] can be implemented by passing pointers to goroutines through channels. Therefore the SMM is facilitated by the MPM in Go.
 
+
+#languages

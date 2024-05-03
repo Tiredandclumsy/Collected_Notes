@@ -13,3 +13,5 @@ The mode $x$ is a (not necessarily unique) value on $X$ such that $P_X(x)$ is ma
 The mean $\mu$ of $X$ is defined as $\mu = E(X) := \sum_{x}P_X(x)$
 
 The variance $\sigma^2$ of $X$ is defined as $\sigma^2 = E(X^2) - \mu^2 = \sum _x[P_X(x)x^2] - \mu^2$
+
+#statistics

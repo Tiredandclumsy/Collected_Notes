@@ -15,3 +15,4 @@ All of these rules can be derived from 3 axioms of probability, known as the Kol
 # Definitions
 The sample space $S$ is the set of all possible outcomes. An outcome is a disjoint and indivisible value representing a possible state the system could occupy. A set of outcomes in $S$ is an event $E \subseteq S$
 
+#discrete-maths

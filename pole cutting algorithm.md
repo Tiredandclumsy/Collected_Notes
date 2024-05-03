@@ -13,3 +13,5 @@ A naive algorithm must run in $O(2^n)$ given there are $n-1$ positions to cut a 
 
 However, the problem exhibits [[optimal substructure]]. Assuming there exists some optimal cutting $n = K_1 + K_2 + K_3 + \dots + K_i$, it must be the case that $n - K_1 = K_2 + K_3 + \dots + K_n$ is also optimal, since if it weren't, the truly optimal cutting could be found and substituted into the solution to $n$, proving $n = K_1 + K_2 + K_3 + \dots + K_i$ was non-optimal.
 Therefore, an initial recursive framing to the problem can be found, whereby $r_n = \max _{i = 1 \to n} \{p_i + r_{n-i}\}$, considering $r_0 = p_0 = 0$.
+
+#algorithms

@@ -32,3 +32,4 @@ Given a sorted list, then the condition `A[i] > v` will always be false, leading
 However, given a worst case scenario, the inner loop would run from `i = j-1` to `i = 0`, and therefore be dependent on `j`. Hence $\sum _{j=1} ^{n-1} j  \cdot O(1) = O(1) \sum _{j=1} ^{n-1} j = O(1) \frac {n(n-1)}{2} = O(1) (n^2 - n) \in O(n^2)$
 
 
+#algorithms

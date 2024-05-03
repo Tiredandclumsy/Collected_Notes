@@ -7,3 +7,5 @@ A rearrangement of this equation yields the [[virtual short-circuit]].
 # Practical Considerations
 In practice, an op-amp has a further 2 inputs $V_{S+}$ and $V_{S-}$ which provide power. This means $V_{S-} \le V_{\text{out}} \le V_{S+}$. Further, a small amount of voltage is lost internally when providing power, such that $K \times V_{S-} \le V_{\text{out}} \le K \times V_{S+}$ where $K < 1$ and ranges depending on the op-amp model.
 
+
+#linear-circuits

@@ -5,3 +5,5 @@ There are 4 conditions necessary for a deadlock to occur:
 - Resource holding - a process uses a particular resource until it has completed the required task, taking a non-zero amount of time
 - No pre-emption - the lack of ability for an arbitrator to halt a task and/or withdraw the resource it is using
 - Circular wait - the possibility of a procedure to wait for a resource while holding a separate resource, facilitating a 'circle' of procedures waiting on the previous procedure
+
+#concurrency

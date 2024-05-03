@@ -15,3 +15,5 @@ Base-6 - Hex or Seximal
 Base-8 - Octal
 Base-10 - Decimal
 Base-16 - Hexadecimal
+
+#discrete-maths

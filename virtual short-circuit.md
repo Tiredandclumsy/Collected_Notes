@@ -11,3 +11,4 @@ The virtual short-circuit implies:
 - The current flow between inputs is negligible
 - The output of an op-amp will settle at the value that minimised the difference between inputs
 
+#linear-circuits

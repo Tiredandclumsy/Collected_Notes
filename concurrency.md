@@ -5,3 +5,5 @@ A more abstract definition of concurrency is 'the coordination of multiple parti
 A task that does not require communication between concurrent threads is known as trivially/embarrassingly [[parallel processing|parallelisable]]. 
 
 Communication between threads can be achieved via one of two methods: the [[Shared Memory Model]] or the [[Message Passing Model]]
+
+#concurrency

@@ -30,3 +30,5 @@ If either index is greater than the length of the queue, it is returned to 0, an
 If the location being written to is full, or the one being read from empty, then the [[goroutine]] requesting access to the channel waits until this is not the case. 
 
 Writing to a buffer is done by copying the data from the goroutine's [[stack]], rather than passing a pointer. This is done to ensure that no data in a buffer is lost when a routine terminates.
+
+#concurrency

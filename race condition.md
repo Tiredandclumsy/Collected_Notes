@@ -2,3 +2,5 @@ A race condition in a [[concurrency|concurrent]] program refers to any point whe
 
 # Data race
 When a race condition is reached during execution, the moment is known as a data race.
+
+#concurrency

@@ -8,11 +8,15 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4d5598e2d6d3cd6b",
+            "id": "6329e88254823211",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "distance measure.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -44,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#data-science",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +73,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -89,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "distance measure.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "distance measure.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "distance measure.md"
+              }
             }
           }
         ]
@@ -146,34 +155,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4d5598e2d6d3cd6b",
+  "active": "6329e88254823211",
   "lastOpenFiles": [
-    "Untitled.md",
-    "op-amp.md",
-    "relation.md",
-    "function.md",
-    "goroutine.md",
-    "channel.md",
-    "Go.md",
-    "modular numbers.md",
-    "mutual exclusion.md",
+    "covariance.md",
+    "Fourier series.md",
+    "regression.md",
+    "Properties of functions.md",
+    "Eigenvectors and eigenvalues.md",
+    "distance measure.md",
     "Message Passing Model.md",
-    "Shared Memory Model.md",
-    "deadlock.md",
-    "race condition.md",
-    "concurrency.md",
-    "parallel processing.md",
+    "Mergesort.md",
+    "hash function.md",
+    "virtual short-circuit.md",
     "sorting algorithm.md",
+    "Signal to Noise Ratio.md",
+    "Shared Memory Model.md",
+    "Rules of Probability.md",
+    "relation.md",
     "random variable.md",
     "Radix sort.md",
     "radix.md",
+    "race condition.md",
     "Quicksort.md",
     "pole cutting algorithm.md",
+    "parallel processing.md",
+    "OSI Security Architecture.md",
+    "Bayes' Rule.md",
     "optimal substructure.md",
-    "Mergesort.md",
-    "lowest common multiple.md",
-    "Heapsort.md",
-    "Insertion sort.md",
+    "op-amp.md",
     "Quicksort.md.partial"
   ]
 }

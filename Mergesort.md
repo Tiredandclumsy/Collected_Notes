@@ -46,3 +46,5 @@ The runtime can be split into two steps - the depth of recursion, and the runtim
 The recursion tree is of depth $\log(n)$, or more specifically $\log(2 \lceil \frac n 2 \rceil)$, and thus is in $O(\log n)$
 At each step, `MERGE()` runs in $O(n)$. This is because it iterates through both halves of the array, and thus iterates through each element of the input array. It must perform as many writes to `A` as elements in the input, and so the number of writes is also $O(n)$ leading to $O(n)$ overall.
 Since `MERGE()` is performed $O(\log n)$times and runs in $O(n)$, Mergesort has a runtime $O(n \log n)$. In fact, this runtime does not change based on any properties of the input array, as no worst-case assumptions were made in the above reasoning. Therefore Mergessort runs in $\Theta (n \log n)$
+
+#algorithms
