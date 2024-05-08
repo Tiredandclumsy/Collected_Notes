@@ -1,4 +1,4 @@
-Hash functions are a type of cryptographic algorithm that take a variable length input and return a fixed length output that encodes the original input.
+Hash functions are a type of [[cipher|cryptographic algorithm]] that take a variable length input and return a fixed length output that encodes the original input.
 Hash functions are not used to encode information directly, but instead can be used to verify that received data has not been tampered with or otherwise altered.
 A good hash function will output radically different strings for similar, but distinct, input strings.
 

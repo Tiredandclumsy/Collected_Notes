@@ -48,3 +48,4 @@ The equation to be solved is then $\hat y (x) = \mathbf x^T(x) \mathbf w = w_1 f
 # Regularisation
 Complex functions in the previous case can lead to overfitting or chaotic behaviour, for example if large coefficients are used for higher order polynomials. This can be minimised by penalising large weights, done via an additional term in the loss function which minimises the sum of the square of the weights: $$\mathcal L (\mathbf w) = \sum _{i=1} ^N \left (y_i - \mathbf w ^T \mathbf x(x_i) \right)^2 + \lambda \sum _{i=1} ^D w_i ^2$$
 This leads to a new optimal weight function. $$\mathbf w ^* = \left( \mathbf X ^T \mathbf X + \lambda \mathbf I \right) ^{-1} \mathbf X ^T \mathbf y$$
+#data-science 

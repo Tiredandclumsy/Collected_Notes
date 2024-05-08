@@ -1,12 +1,12 @@
 # Definition
-A group $(G, \bullet)$ is defined as a [[set]] $G$ and a [[binary operation]] $\bullet$ that satsfies 4 properties:
+A group $(G, \bullet)$ is defined as a [[set]] $G$ and a [[binary operation]] $\bullet$ that satisfies 4 properties:
 1. Closure - $\bullet$ is closed, meaning $x,y \in G \Rightarrow x \bullet y \in G$
 2. Associativity - $\bullet$ is associative, meaning $\forall x,y,z \in G , (x \bullet y) \bullet z = x \bullet ( y \bullet z)$
 3. Identity - $\exists e \in G \text{ s.t. } \forall x \in G, e \bullet x = x \bullet e = x$
 4. Inverse - $\forall x \in G, \exists x^{-1} \in G \text{ s.t. } x \bullet x^{-1} = x^{-1} \bullet x = e$
 The group $(G, \bullet)$ is usually referred to as "$G$ under $\bullet$"
 
-# Subsets and supersets of groups
+# Subsets and supersets of the set of groups
 A group $(G, \bullet)$ such that $\bullet$ is [[commutative]] is an Abelian Group. The set of all abelian groups therefore makes up a subset of the set of all groups.
 
 If a set under a binary operation fulfils closure, associativity, and identity it is a monoid. Monoids may or may not fulfil inverse. 
