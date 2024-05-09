@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Maximum likelihood estimation.md",
+                "file": "Duplexing and Multiple Access.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Maximum likelihood estimation.md",
+                "file": "Duplexing and Multiple Access.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Maximum likelihood estimation.md",
+                "file": "Duplexing and Multiple Access.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Maximum likelihood estimation.md"
+                "file": "Duplexing and Multiple Access.md"
               }
             }
           }
@@ -155,9 +155,9 @@
   },
   "active": "aefc0cb9113e07e8",
   "lastOpenFiles": [
+    "Maximum likelihood estimation.md",
     "Regression.md",
     "Eigenvectors and eigenvalues.md",
-    "Maximum likelihood estimation.md",
     "covariance.md",
     "Modulation.md",
     "Duplexing and Multiple Access.md",
