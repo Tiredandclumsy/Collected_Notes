@@ -1,6 +1,6 @@
 The Fourier Series can refer to any one of a set of methods by which a signal can be expressed as a set of coefficients of summed sinusoids of varying frequencies.
 
-The signal generated from the set of coefficients is the signal transformed into the Fourier domain.
+The signal generated from the set of coefficients is the original time domain signal transformed into the Fourier domain.
 
 # Trigonometric Fourier Series
 $$f(x) = a_0 + \sum _{n=0} ^\infty a_n \cos \left( \cfrac {2 \pi n x} T \right) + b_n \sin \left( \cfrac{2 \pi n x} T \right)$$

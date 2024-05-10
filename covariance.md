@@ -1,7 +1,7 @@
 Covariance is a measure of spread and correlation between two dimensions of data.
-$$C = \cfrac 1 {N} \sum _i (v_i - \mu)^T (v_i - \mu)$$
+$$C = \cfrac 1 {N} \sum _i (v_{i,1} - \mu_1)^T (v_{i,2} - \mu_2)$$
  
-where $\mu$ is the array of means of values in the $n$th dimension
+where $\mu$ is the array of means of values, with each $n$th value being the mean in the $n$th dimension.
 The covariance of any dimension taken with itself is its variance.
 
 Note that $N$ is replaced by $N-1$ when the population mean is not known, and the sample mean is taken instead.

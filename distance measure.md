@@ -3,6 +3,7 @@ A distance measure $D$ on an $n$ dimensional vector space $M$ is a metric (type 
 - Reflexivity: $\forall a,b \in \mathbb R^n : D(a,b) = 0 \iff a=b$
 - Symmetry: $\forall a,b \in \mathbb R^n: D(a,b) = D(b,a)$
 - Triangular inequality: $\forall a,b,c \in \mathbb R^n: D(a,b) \le d(a,c) + D(c,b)$
+
 Distance measures more generally can be defined on any kind of data, such as sequences of symbols.
 # P-norm distances
 Normal distance, also known as Minkowski distance, is the generalisation of distances to a discrete ordered set. The $p$-norm distance $L_p$, for any $p \in \mathbb N$ is defined $$\left ( \sum _{i=1} ^n |x_i - y_i|^p \right )^{\tfrac 1 p}$$

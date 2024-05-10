@@ -13,13 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Duplexing and Multiple Access.md",
+                "file": "Communication system.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4ebb99787fc4f64e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Bandwidth.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "138b7e92f6261be9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "goroutine.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -48,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "\\beg",
+                "query": "\\",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -93,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Duplexing and Multiple Access.md",
+                "file": "goroutine.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +135,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Duplexing and Multiple Access.md",
+                "file": "goroutine.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Duplexing and Multiple Access.md"
+                "file": "goroutine.md"
               }
             }
           }
@@ -153,34 +178,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "aefc0cb9113e07e8",
+  "active": "138b7e92f6261be9",
   "lastOpenFiles": [
+    "Message Passing Model.md",
+    "concurrency.md",
+    "parallel processing.md",
     "Maximum likelihood estimation.md",
+    "Untitled.md",
+    "Bandwidth.md",
+    "Rates of communication.md",
+    "Communication system.md",
+    "OSI Security Architecture.md",
+    "deadlock.md",
+    "cipher.md",
+    "Cryptology.md",
+    "hash function.md",
+    "covariance.md",
+    "Fourier series.md",
+    "distance measure.md",
+    "Duplexing and Multiple Access.md",
     "Regression.md",
     "Eigenvectors and eigenvalues.md",
-    "covariance.md",
     "Modulation.md",
-    "Duplexing and Multiple Access.md",
     "Multiple Access.md",
     "Inter-symbol interference.md",
     "Delay spread.md",
     "group.md",
     "Error Rate.md",
     "BER vs SNR curve.md",
-    "channel.md",
-    "bijection.md",
-    "Gray coding.md",
-    "Noise and Interference.md",
-    "Signal to Noise Ratio.md",
-    "Bandwidth.md",
-    "cipher.md",
-    "Cryptology.md",
-    "hash function.md",
-    "CIA Triad.md",
-    "cybersecurity.md",
-    "Communication system.md",
-    "noise.md",
-    "distance measure.md",
     "Quicksort.md.partial"
   ]
 }

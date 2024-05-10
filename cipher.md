@@ -1,10 +1,10 @@
-A cipher is a cryptographic algorithm that performs encryption/decryption. The study o cipher is called [[Cryptology]]. 
+A cipher is a cryptographic algorithm that performs encryption/decryption. The study of ciphers is called [[Cryptology]]. 
 
 The goal of a cipher is to ensure that only the intended recipient of the message can interpret it. Therefore, ciphers generally aim to achieve two key criteria:
 - Unconditional security - a potential attacker cannot decrypt the enciphered message because they do not have the required information
 - Computational security - the costs of breaking the cipher outweighs the usefulness of the [[Cryptology#Terminology|plaintext]]
 
-# # Types
+# Types
 ## Substitution ciphers
 A substitution cipher is any cipher that produced [[Cryptology#Terminology|ciphertext]] by replacing symbols in the plaintext. 
 The simplest substitution cipher is the Caesar cipher, Generally, the alphabet of the message is sorted, and each $n$th alphabetical symbol in the plaintext is replaced by the $n+k$th symbol. [[modular numbers|modular arithmetic]] is used to 'wrap around' the alphabet, so that all values of $n+k$ are defined.
