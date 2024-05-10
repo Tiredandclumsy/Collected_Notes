@@ -8,43 +8,55 @@
         "type": "tabs",
         "children": [
           {
-            "id": "aefc0cb9113e07e8",
+            "id": "dbefe26c8442e693",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Communication system.md",
+                "file": "Feature.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "4ebb99787fc4f64e",
+            "id": "c4f51042950aa019",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bandwidth.md",
+                "file": "Nyquist-Shannon Sampling Theory.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "138b7e92f6261be9",
+            "id": "0c12802e7810fc5f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "goroutine.md",
+                "file": "distance measure.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a9e7f2f6fe98db9b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Fourier transform.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -73,7 +85,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "\\",
+                "query": "variance",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -118,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "goroutine.md",
+                "file": "Fourier transform.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "goroutine.md",
+                "file": "Fourier transform.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "goroutine.md"
+                "file": "Fourier transform.md"
               }
             }
           }
@@ -178,34 +190,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "138b7e92f6261be9",
+  "active": "a9e7f2f6fe98db9b",
   "lastOpenFiles": [
+    "signal.md",
+    "Fourier transform.md",
+    "function.md",
+    "distance measure.md",
+    "Covariance.md",
+    "Mergesort.md",
+    "modular numbers.md",
+    "standard deviation.md",
+    "random variable.md",
+    "Maximum likelihood estimation.md",
+    "Nyquist-Shannon Sampling Theory.md",
+    "Sampling and quantisation.md",
+    "Feature.md",
+    "Communication system.md",
+    "Bandwidth.md",
+    "goroutine.md",
     "Message Passing Model.md",
     "concurrency.md",
     "parallel processing.md",
-    "Maximum likelihood estimation.md",
     "Untitled.md",
-    "Bandwidth.md",
     "Rates of communication.md",
-    "Communication system.md",
     "OSI Security Architecture.md",
     "deadlock.md",
     "cipher.md",
     "Cryptology.md",
     "hash function.md",
-    "covariance.md",
-    "Fourier series.md",
-    "distance measure.md",
-    "Duplexing and Multiple Access.md",
-    "Regression.md",
-    "Eigenvectors and eigenvalues.md",
-    "Modulation.md",
-    "Multiple Access.md",
-    "Inter-symbol interference.md",
-    "Delay spread.md",
-    "group.md",
-    "Error Rate.md",
-    "BER vs SNR curve.md",
     "Quicksort.md.partial"
   ]
 }

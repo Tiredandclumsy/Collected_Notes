@@ -36,9 +36,8 @@ $\operatorname{similarity}(A,B) = \cos(\theta) = \cfrac{A \cdot B}{\Vert A \Vert
 $\operatorname{distance}(A,B) = 1 - \operatorname{similarity}(A,B) = 1 - \cos(\theta) = 1 - \cfrac{A \cdot B}{\Vert A \Vert \Vert B \Vert}$
 
 # Mahalanobis distance
-The Mahalanobis distance is a measure between a data vector and a set of data, or more specifically two vectors with regard to a specific data set covariance. 
-$$\operatorname{mahalanobis}(a,b) = (a-b)^T \Sigma ^{-1}(a-b)$$ where $\operatorname{cov}(X,Y) = \Sigma = \cfrac 1 {N-1} \sum_{i=1} ^N (x_i - \bar x)(y_i - \bar y)$
-
+The Mahalanobis distance is a measure between a data vector and a set of data, or more specifically two vectors with regard to a specific data set [[Covariance|covariance]]. 
+$$\operatorname{mahalanobis}(a,b) = (a-b)^T \Sigma ^{-1}(a-b)$$ where $$\operatorname{cov}(X,Y) = \Sigma = \cfrac 1 {N-1} \sum_{i=1} ^N (x_i - \bar x)(y_i - \bar y)$$It can be thought of as finding the Euclidean distance after scaling the data such that the major and minor axis of the data set covariance become unit dimension vectors.
 # Symbolic distances
 Distance can be defined on words, binary sequences, DNA sequences, and more. These all define distance measures between strings of symbols from a pre-defined alphabet.
 ## Hamming distance

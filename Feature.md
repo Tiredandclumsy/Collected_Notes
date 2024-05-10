@@ -1,0 +1,3 @@
+A feature in data science is an individual property of some input entity. Common examples include average brightness of an image, presence of a certain word in text, or the length of a video.
+
+Often more than one feature is used for later techniques such as classification. In this case, the features are combined into a single feature vector, which constructs a vector space of the features. This can lead to geometric interpretations of statistical techniques.

@@ -11,4 +11,14 @@ A function $f : A \to B$ is surjective, or a surjection, if $\text{ran}(f) = B$,
 
 If a function is an injection and a  surjection, it is a [[bijection]].
 
+# Numerical functions
+Numerical functions (that is, $\{f \text{ s.t } f :: \mathbb R \to \mathbb R\}$)
+have certain intrinsic properties.
+## Odd and even functions
+Numerical functions can be odd or even:
+- $\forall x \in \mathbb R: f(x) = f(-x) \implies$ the function is even
+- $\forall x \in \mathbb R: f(x) = -f(-x) \implies$ the function is odd
+
+Every non-constant function $f$ can be decomposed into a sum of an odd and even function: $f(x) = h(x) + g(x)$ where $h(x) = \frac 1 2 \left[ f(x) + f(-x) \right], g(x) = \frac 1 2 \left[ f(x) - f(-x) \right]$
+
 #discrete-maths
