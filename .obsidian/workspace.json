@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d100b12ae0f48096",
+        "id": "51458677afe01c20",
         "type": "tabs",
         "children": [
           {
-            "id": "dbefe26c8442e693",
+            "id": "32dda8fb886cec9a",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,45 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "c4f51042950aa019",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Nyquist-Shannon Sampling Theory.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0c12802e7810fc5f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "distance measure.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a9e7f2f6fe98db9b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Fourier transform.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -85,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "variance",
+                "query": "tag:#data-science",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -130,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Fourier transform.md",
+                "file": "Feature.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Fourier transform.md",
+                "file": "Feature.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Fourier transform.md"
+                "file": "Feature.md"
               }
             }
           }
@@ -190,34 +153,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a9e7f2f6fe98db9b",
+  "active": "32dda8fb886cec9a",
   "lastOpenFiles": [
-    "signal.md",
     "Fourier transform.md",
-    "function.md",
-    "distance measure.md",
-    "Covariance.md",
-    "Mergesort.md",
-    "modular numbers.md",
-    "standard deviation.md",
-    "random variable.md",
-    "Maximum likelihood estimation.md",
-    "Nyquist-Shannon Sampling Theory.md",
-    "Sampling and quantisation.md",
-    "Feature.md",
-    "Communication system.md",
+    "Duplexing and Multiple Access.md",
+    "bijection.md",
+    "Bayes' Rule.md",
+    "Properties of functions.md",
+    "BER vs SNR curve.md",
     "Bandwidth.md",
-    "goroutine.md",
-    "Message Passing Model.md",
+    "channel (concurrency).md",
     "concurrency.md",
-    "parallel processing.md",
-    "Untitled.md",
-    "Rates of communication.md",
-    "OSI Security Architecture.md",
-    "deadlock.md",
-    "cipher.md",
     "Cryptology.md",
-    "hash function.md",
+    "distance measure.md",
+    "Error Rate.md",
+    "Communication system.md",
+    "CIA Triad.md",
+    "Feature.md",
+    "Nyquist-Shannon Sampling Theory.md",
+    "optimal substructure.md",
+    "op-amp.md",
+    "Noise and Interference.md",
+    "Modulation.md",
+    "goroutine.md",
+    "standard deviation.md",
+    "signal.md",
+    "Message Passing Model.md",
+    "parallel processing.md",
+    "Maximum likelihood estimation.md",
     "Quicksort.md.partial"
   ]
 }

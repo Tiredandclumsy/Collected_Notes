@@ -1,6 +1,6 @@
 Go is a programming language developed by Google, supporting simple concurrent programming in a C-like syntax.
 
-Go uses [[channel|channels]] to allow [[concurrency|concurrent]] execution, via the [[Message Passing Model]].  The `go` keyword followed by a procedure executes that procedure as a [[goroutine]], dispatching it to execute concurrently then immediately returning to the main thread of execution. The procedure cannot return a value, and instead communicates by sending messages along any number of channels.
+Go uses [[channel (concurrency)|channels]] to allow [[concurrency|concurrent]] execution, via the [[Message Passing Model]].  The `go` keyword followed by a procedure executes that procedure as a [[goroutine]], dispatching it to execute concurrently then immediately returning to the main thread of execution. The procedure cannot return a value, and instead communicates by sending messages along any number of channels.
 
 # Syntax
 ## Functions
