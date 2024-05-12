@@ -1,0 +1,9 @@
+Principal Component Analysis (PCA) is a technique of transforming a vector space for the purposes of feature selection.
+It involves first normalising the data such that the mean lies at $(0)^N$, finding the eigenvectors and eigenvalues of the covariance matrix, constructing a coordinate space with unit dimensions of the $d$ eigenvectors with the highest eigenvalues, then projecting the data into this new space.
+The eigenvector with the highest eigenvalue represents the correlation of all features that is responsible for the highest variance. For example, if the data set is comprised of the height and width of images, then a large variance would be present at a linear correlation of these two features, allowing the formation of a new feature representing the size of the image.
+The proportion of variance contributed by each vector is given by the eigenvalue divided by the sum of all eigenvalues.
+
+Conceptually, this vector space projection implies that every data point can be gained (or sufficiently gained if dimensions are removed) from the mean and a weighted sum of eigen vectors. These weights encode the data point, and the eigen vectors can be interpreted as their own data points (as they have the same dimensionality as the data).
+Therefore, for example, a facial recognition PCA would yield eigenvectors that can be displayed as images.
+
+Once the PCA space has been constructed, any new data points can be projected into it, and some distance measure taken between it and all pre-learned data points. The data point closest under the distance measure is then known to be the best classification of the new data point.

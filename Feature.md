@@ -16,4 +16,11 @@ As dimensionality increases, the spatial density of a data set reduces, because 
 Therefore, it is beneficial to reduce the number of features. This can be done by feature selection, whereby the most useful features are used and the rest discarded, or feature extraction, where the data is projected into a lower dimensional space.
 
 ## Feature selection
-Feature selection cannot be done exhaustively, as the set of possible subsets of size $d$ given $N$ original features has the cardinality $\cfrac{N!}{(N-d)!d!}$. 
+Feature selection cannot be done exhaustively, as the set of possible subsets of size $d$ given $N$ original features has the cardinality $\cfrac{N!}{(N-d)!d!}$. Instead, one of two techniques is usually employed - forward or backward stepwise selection.
+Forward stepwise selection begins with a null model - one with no features, and incrementally adds the most significant feature from the data set until $d$ features have been selected. 
+Backward stepwise selection starts with a full model that contains every feature of the data, and iteratively removes the least significant until only $d$ features remain.
+Features are assessed by significance tests. Stepwise selection assumes that all features are independent.
+
+## Feature extraction
+Feature extraction finds a mapping from the original feature space to a reduced dimensional vector space: given a feature space $\mathbb R^N$ with feature vectors $\mathbf m$, a mapping $\mathbf x = \phi(\mathbf m) : \mathbb R^N \to \mathbb R^d$ can be constructed that preserves as much of the information encoded in the original vector space as possible.
+One strategy for generating this mapping is [[principal component analysis]].
