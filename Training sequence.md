@@ -1,0 +1,3 @@
+A training sequence is a preliminary string of information sent in a [[modulation]] scheme to in some way calibrate the [[Demodulation|demodulator]]. It is most common in [[PSK]], as the coherent copy of the carrier wave can be out of phase, inverting the received information.
+
+If a known training sequence is first received by the demodulator system, the demodulated result can be compared to the known original, and a reverse of phase easily detected and subsequently reversed for the actual message.

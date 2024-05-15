@@ -9,8 +9,10 @@ Generally, the role of a communications engineer is to design a transmitter and 
 The transmitter can code, filter, and amplify the signal to be sent down the channel. For passband systems (where the channel permits a finite frequency range not including 0Hz) the transmitter also performs carrier modulation - also known as up-conversion.
 The receiver then recovers the original message, usually in a process similar to the inverse of the transmitter (filtering (equalising), decoding). In passband systems, the receiver performs carrier demodulation, also known as down-conversion. Usually, the receiver must also amplify the signal, despite amplification at the transmitter, due to losses in the channel.
 
+Channels usually contribute [[Noise and Interference|noise]] to the signal, cause loss to its power, and only propagate a certain range of frequencies. 
 
-Channels usually contribute [[Noise and Interference|noise]] to the signal, cause loss to its power, and only propagate a certain range of frequencies. If this range if from D.C. upwards, the channel is 'baseband', and otherwise it is 'passband'.
+# Baseband / bandpass
+If the range of frequencies permitted in the channel ranges from D.C. upwards, the channel is 'baseband', and otherwise it is 'passband' or 'bandpass'.
 
 
 

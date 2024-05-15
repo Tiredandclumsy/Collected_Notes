@@ -8,43 +8,30 @@
         "type": "tabs",
         "children": [
           {
-            "id": "32dda8fb886cec9a",
+            "id": "c268ac28b4626c04",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Feature.md",
+                "file": "Noise and Interference.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "fe7ada4091923401",
+            "id": "7201a94e51f7af7e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Principal component analysis.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "69bcbfc915d00c59",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "convolution.md",
+                "file": "ASK.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -73,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#data-science",
+                "query": "bandwidth eff",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -118,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "convolution.md",
+                "file": "Noise and Interference.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "convolution.md",
+                "file": "Noise and Interference.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,15 +145,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "convolution.md"
+                "file": "Noise and Interference.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -178,34 +167,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "69bcbfc915d00c59",
+  "active": "c268ac28b4626c04",
   "lastOpenFiles": [
-    "Principal component analysis.md",
-    "convolution.md",
-    "Feature.md",
-    "Fourier transform.md",
-    "Duplexing and Multiple Access.md",
-    "bijection.md",
-    "Bayes' Rule.md",
-    "Properties of functions.md",
-    "BER vs SNR curve.md",
+    "Shannon-Hartley Theorem.md",
+    "Rates of communication.md",
     "Bandwidth.md",
-    "channel (concurrency).md",
-    "concurrency.md",
-    "Cryptology.md",
-    "distance measure.md",
-    "Error Rate.md",
-    "Communication system.md",
-    "CIA Triad.md",
-    "Nyquist-Shannon Sampling Theory.md",
-    "optimal substructure.md",
-    "op-amp.md",
-    "Noise and Interference.md",
+    "Delay spread.md",
     "Modulation.md",
-    "goroutine.md",
-    "standard deviation.md",
+    "ASK.md",
+    "Error Rate.md",
+    "Noise and Interference.md",
+    "Training sequence.md",
+    "PSK.md",
+    "Bandpass filtering.md",
+    "FSK.md",
+    "comparitor.md",
+    "Demodulation.md",
+    "Envelope detector.md",
+    "Signal spectra.md",
     "signal.md",
-    "Message Passing Model.md",
+    "Communication system.md",
+    "Carrier modulation.md",
+    "Signal to Noise Ratio.md",
+    "convolution.md",
+    "Principal component analysis.md",
+    "Feature.md",
+    "M-ary signalling.md",
+    "Untitled 1.md",
+    "Fourier transform.md",
     "Quicksort.md.partial"
   ]
 }
