@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Noise and Interference.md",
+                "file": "standard deviation.md",
                 "mode": "source",
                 "source": false
               }
@@ -60,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "bandwidth eff",
+                "query": "variance",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +85,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -105,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Noise and Interference.md",
+                "file": "standard deviation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Noise and Interference.md",
+                "file": "standard deviation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Noise and Interference.md"
+                "file": "standard deviation.md"
               }
             }
           }
@@ -169,19 +170,20 @@
   },
   "active": "c268ac28b4626c04",
   "lastOpenFiles": [
+    "Feature.md",
+    "FSK.md",
+    "comparitor.md",
+    "ASK.md",
+    "Noise and Interference.md",
     "Shannon-Hartley Theorem.md",
     "Rates of communication.md",
     "Bandwidth.md",
     "Delay spread.md",
     "Modulation.md",
-    "ASK.md",
     "Error Rate.md",
-    "Noise and Interference.md",
     "Training sequence.md",
     "PSK.md",
     "Bandpass filtering.md",
-    "FSK.md",
-    "comparitor.md",
     "Demodulation.md",
     "Envelope detector.md",
     "Signal spectra.md",
@@ -191,7 +193,6 @@
     "Signal to Noise Ratio.md",
     "convolution.md",
     "Principal component analysis.md",
-    "Feature.md",
     "M-ary signalling.md",
     "Untitled 1.md",
     "Fourier transform.md",
