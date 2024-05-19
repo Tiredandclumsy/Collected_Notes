@@ -29,3 +29,23 @@ The demodulator stage multiplies the received signal with a local copy of the ca
 
 ## BER
 The [[Error Rate|BER]] of either demodulation system is the same, as they are functionally identical. It is given by $$P_s = \frac 1 2 \operatorname{erfc}\left( \frac{-E_b}{N_0} \right)$$and as such is slightly worse than coherent PSK.
+
+# QPSK
+A cosine and a sine wave of the same phase and frequency are orthogonal. Therefore, two BPSK signals, one modulated on a cosine wave and the other on a sine wave, will not cause any interference between each other. This 4-ary PSK modulation is called quadrature PSK or QPSK.
+## Modulation
+The modulator for QPSK first passes the binary signal through a 2-bit serial to parallel converter. This system outputs two branches, sending consecutive bits down alternating branches. These branches then undergo standard BPSK modulation - a [[Bandpass filtering|bandpass filter]] and a mixer, but one mixer is $90\degree$ out of phase to the other. The two branches are summed, and the result transmitted.
+The constellation diagram for QPSK has 4 points, one in each quadrant, all of equal magnitude and lying on $45\degree$ diagonals. This is because the 4 possible bits lead to either a $1$ or $-1$ component of sine or cosine, leading to the points $(1,1),(1,-1),(-1,1)(-1,-1)$.
+## Demodulation
+To demodulate QPSK, the received signal is split into 2 branches. Each branch is multiplied by the local copy of the carrier, but one branch copy is first delayed so it is $90 \degree$ out of phase. Then demodulation continues as per BPSK with a low-pass filter and a comparitor, before both branches are combined in a parallel to serial converter, that takes each simultaneous pair of bits and outputs them one after another on a single channel.
+
+The maths of this demodulation is as follows: suppose some pair of bits $I,Q \in \{0,1\}$ is transmitted, with $I$ being in-phase (cosine) and $Q$ being quadrature (sine).  The transmitted signal is therefore $IA\cos(\omega_c t) + QA\sin(\omega_ct)$.
+In-phase, the demodulation first gives $$IA\cos^2(\omega_c t) + QA\sin(\omega_c t)\cos(\omega_ct)$$$$IA\left(\frac 1 2 \cos(2 \omega_c t) + \frac 1 2 \right) + QA \left(\frac 1 2 sin(2 \omega_c)\right)$$by the double angle formulae
+$$\frac {IA} 2 + \frac {IA} 2 \cos(2 \omega_c t) + \frac {QA} 2 \sin(2 \omega_ct)$$When this is passed through the low-pass filter, only $\frac {IA} 2$ remains - a scalar multiple of the in-phase signal.
+For quadrature the maths is similar: $$IA\cos(\omega_c t) \sin(\omega_c t) + QA\sin^2(\omega_ct)$$$$IA \left(\frac 1 2 \sin(\omega_ct)\right) + QA \left( \frac 1 2 - \frac 1 2 \cos(2 \omega_c t) \right)$$by the double angle formulae$$\frac{QA} 2 - \frac {QA} 2 \cos(2 \omega_c t) + \frac{IA}2 \sin(\omega_c t)$$When this result is filters as before, only $\frac{QA}2$ remains, which is a scalar multiple of the quadrature signal.
+
+The [[Error Rate|BER]] is the same as BPSK and polar baseband:$$P_s = \frac 1 2 \operatorname{erfc} \left( \sqrt{\frac{E_b}{N_0}} \right)$$As such, QPSK allows a communications engineer to double the [[Rates of communication#Data rate|data rate]] of the PSK system without sacrificing BER degradation.
+
+# M-ary PSK
+M-ary PSk is rare for $M>4$, and so the modulation and demodulation will not be discussed here.
+The constellation diagram M-ary PSK generates is $M$ points spaced evenly on the edge of a unit circle. 
+Beyond QPSK the BER will suffer from the increase in data rate. The BER is given by $$P_s=\operatorname{erfc}\left( \frac{E_s}{N_0}\sin \left(\frac \pi M \right) \right)$$

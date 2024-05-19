@@ -44,4 +44,5 @@ The coherent M-ary FSK demodulator branches the recieved signal into M filters, 
 Non-coherent M-ary FSK demodulation will not be discussed further.
 ## Coherent
 Coherent M-ary demodulation branches the signal as before, and multiplies each branch with a local copy of a different carrier signal, where each has the frequency of a symbol in the modulation scheme. These multiplied signals are then filters to remove [[Modulation#Carrier modulation|sidebands]] and passed into a multi-pass comparitor. The output of this comparitor has then recovered the original M-ary signal, which is converted back into binary.
-The [[Signal to Noise Ratio|Eb/N0]] requirement for a given [[Error Rate|BER]] 
+The [[Signal to Noise Ratio|Eb/N0]] requirement for a given [[Error Rate|BER]] #incomplete what the hell is going on with SNR for MFSK??
+
