@@ -1,5 +1,8 @@
 {
   "accentColor": "",
   "textFontFamily": "Readex Pro",
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "columns"
+  ]
 }

@@ -13,7 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "QAM.md",
+                "file": "Computer Systems B Notes.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "933be577c5cd99ce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CIA Triad.md",
                 "mode": "source",
                 "source": false
               }
@@ -38,7 +50,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "byCreatedTime"
               }
             }
           },
@@ -48,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "variance",
+                "query": "Hz",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -93,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "QAM.md",
+                "file": "Computer Systems B Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "QAM.md",
+                "file": "Computer Systems B Notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "QAM.md"
+                "file": "Computer Systems B Notes.md"
               }
             }
           }
@@ -156,8 +168,15 @@
   },
   "active": "84f9e856d2706aaa",
   "lastOpenFiles": [
-    "PSK.md",
+    "hash function.md",
+    "Computer Systems B Notes.md",
+    "cipher.md",
+    "OSI Security Architecture.md",
+    "Cryptology.md",
+    "CIA Triad.md",
+    "Bandwidth.md",
     "QAM.md",
+    "PSK.md",
     "FSK.md",
     "standard deviation.md",
     "Feature.md",
@@ -166,7 +185,6 @@
     "Noise and Interference.md",
     "Shannon-Hartley Theorem.md",
     "Rates of communication.md",
-    "Bandwidth.md",
     "Delay spread.md",
     "Modulation.md",
     "Error Rate.md",
@@ -176,12 +194,6 @@
     "Envelope detector.md",
     "Signal spectra.md",
     "signal.md",
-    "Communication system.md",
-    "Carrier modulation.md",
-    "Signal to Noise Ratio.md",
-    "convolution.md",
-    "Principal component analysis.md",
-    "M-ary signalling.md",
     "Quicksort.md.partial"
   ]
 }

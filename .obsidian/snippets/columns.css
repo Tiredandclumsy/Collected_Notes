@@ -1,0 +1,18 @@
+/* Adjust printing style only to have column output */
+@media print {
+
+    /* Document title to go across entire page */
+    h1:first-of-type {
+        column-span: all;
+        text-align: center;
+    }
+
+    /* Content broken up in columns */
+    .markdown-preview-view {
+        column-count: 2;
+        column-rule: 1px solid #EEE;
+        column-gap: 1em;
+    }
+    
+    margin: 25mm 25mm 25mm 25mm;
+}
