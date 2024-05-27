@@ -30,10 +30,9 @@ If a straight line $\hat y(x_i) = w_1 + w_2 x_i$ is used, the derivation is simi
 The equation yields the following expression if differentiated with regard to $w_2$:
 $$w_2 = \cfrac{\cfrac 1 N \sum _{i=1} ^N x_i y_i - \left( \cfrac 1 N \sum _{i=1} ^N x_i \right) \left( \cfrac 1 N \sum _{i=1} ^N y_i\right)}{\cfrac 1 N \sum_{i=1}^N x_i ^2 - \left( \cfrac 1 N \sum _{i=1} ^N x_i \right)^2}$$
 This can be expressed more succinctly as $w_2 = \cfrac{\overline{xy} - \overline x \ \overline y}{\overline{x^2} - \overline x ^2}$
-Once this has been derived, the process can be repeated differentiating over $w_1$
+Once this has been derived, the process can be repeated differentiating over $w_1$ to yield $w_1 = \cfrac 1 N \sum_{i=1} ^N (y_i - w_2 x_i)$
 
-
-# Multivariable representation
+# Multi-variable representation
 To perform regression on multiple variables, the data first has to be expressed in a form conducive to regression technique.
 This is usually done via each data point's independent variables being a row in a matrix of all the data. Then, the dependent value is stored in a $N$-length column vector. For example, given $N$ data points of $D$ dimensions: $$\mathbf X = \begin{pmatrix} X_{11} & X_{12} & \dots & X_{1D} \\ X_{21} & X_{22} & \dots & X_{2D} \\ \vdots & \vdots & \ddots & \vdots \\ X_{N1} & X_{N2} & \dots & X_{ND} \end{pmatrix}, \mathbf y = \begin{pmatrix} y_1 \\ y_2 \\ \vdots \\ y_N\end{pmatrix} $$
 Each data point then exists as a row vector: $\mathbf x_i = \begin{pmatrix} X_{i1} & X_{i2} & \dots & X_{iD} \end{pmatrix}$

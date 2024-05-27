@@ -1,3 +1,36 @@
+- [[#CIA Triad|CIA Triad]]
+- [[#Cryptology|Cryptology]]
+- [[#Ciphers|Ciphers]]
+- [[#Keys|Keys]]
+	- [[#Keys#Types|Types]]
+		- [[#Types#Substitution ciphers|Substitution ciphers]]
+		- [[#Types#Block ciphers|Block ciphers]]
+		- [[#Types#Stream ciphers|Stream ciphers]]
+- [[#Data Encryption Standard|Data Encryption Standard]]
+- [[#Brute-force attacks|Brute-force attacks]]
+	- [[#Brute-force attacks#Hash functions|Hash functions]]
+		- [[#Hash functions#Message Authentication Codes|Message Authentication Codes]]
+	- [[#Brute-force attacks#Digital Signatures|Digital Signatures]]
+- [[#OSI Security Architecture|OSI Security Architecture]]
+	- [[#OSI Security Architecture#Security attacks|Security attacks]]
+	- [[#OSI Security Architecture#Security mechanisms|Security mechanisms]]
+	- [[#OSI Security Architecture#Security services|Security services]]
+		- [[#Security services#Authentication factors|Authentication factors]]
+- [[#Threats|Threats]]
+- [[#Attacks|Attacks]]
+	- [[#Attacks#Man-in-the-middle attacks|Man-in-the-middle attacks]]
+		- [[#Man-in-the-middle attacks#Eavesdropping|Eavesdropping]]
+		- [[#Man-in-the-middle attacks#Replay attack|Replay attack]]
+	- [[#Attacks#Impersonation attack|Impersonation attack]]
+- [[#Networks and clients|Networks and clients]]
+- [[#Network topology|Network topology]]
+	- [[#Network topology#Circuit switching|Circuit switching]]
+	- [[#Network topology#Packet switching|Packet switching]]
+- [[#OSI Network Model|OSI Network Model]]
+	- [[#OSI Network Model#Layer attacks|Layer attacks]]
+- [[#Packets and frames|Packets and frames]]
+- [[#Routers, bridges, hubs, and switches|Routers, bridges, hubs, and switches]]
+
 # Basics of cybersecurity
 Cybersecurity describes the practice of protecting computational systems, networks, and programs from malicious interference. It can be broken into information security, which protects data stored on computer systems, and network security, which protects networks and their services from unwanted interference while ensuring that they still perform their required functions.
 ## CIA Triad
@@ -41,8 +74,8 @@ Block ciphers form the basis of most advanced cryptographic algorithms.
 #### Stream ciphers
 Stream ciphers use a known algorithm generating pseudorandom bits from a given key to encrypt and decrypt messages. The plaintext in binary is compared with the pseudorandom bit string, and the corresponding bits of each are combined by an operator. This generates the ciphertext. The text is then deciphered by generating the same pseudorandom string, and reversing the operator to yield the plaintext. The bit operator used must therefore be reversible - XOR is most commonly used.
 ## Data Encryption Standard
-The Data Encryption Standard (DES) was issued by the National Bureau of Standards, officially called the Federal Processing Standard 46. It sets out a cipher called the Data Encryption Algorithm, which encodes 64-bit blocks of plaintext with a 56-bit key into 64-bit blocks of ciphertext. It is a symmetric algorithm.
-It was the most popular cipher until the introduction of the Advanced Encryption Standard in 2001.
+The Data Encryption Standard (DES) was issued by the National Bureau of Standards in 1977,  officially called the Federal Processing Standard 46. It sets out a cipher called the Data Encryption Algorithm, which encodes 64-bit blocks of plaintext with a 56-bit key into 64-bit blocks of ciphertext. It is a symmetric algorithm.
+It was the most popular cipher until the introduction of the Advanced Encryption Standard (AES) in 2001.
 ## Brute-force attacks
 A brute force attack describes any attempt to decrypt keyed ciphertext without exploiting any specific features of the cipher. This usually involves trying every possible key in the reverse function until intelligible plaintext is gained. On average, this requires attempting half the set of possible keys. 
 ### Hash functions
@@ -58,7 +91,7 @@ Message Authentication Codes (MACs), use keyed hash functions to ensure message 
 A digital signature is a piece of ciphertext generated from a data object that allows the recipient of the object to verify its integrity and origin. 
 In practice, a user feeds the object to be sent into a digital signature generation algorithm, along with the user's private key. This creates a digital signature, which is sent along with the object. The recipient then uses the matching digital signature verification algorithm on the received signature, along with the first user's public key. This function returns whether the signature is valid, and if it is not then it is known that the object has been altered during communication.
 ## OSI Security Architecture
-The Open Systems Interconnection (OSI) Security Architecture defines a systematic approach to providing security in a system. It defines categories for attacks, security defences, abstract layers on which attacks and defence strategies can act, and more. At the highest level, the OSI architecture is broken down into 3 categories: security attacks, security mechanisms, and security services.
+The Open Systems Interconnection (OSI) Security Architecture defines a systematic approach to providing security in a system. It is part of the larger OSI model, defined by the International Organisation for Standardisation (ISO). It defines categories for attacks, security defences, abstract layers on which attacks and defence strategies can act, and more. At the highest level, the OSI architecture is broken down into 3 categories: security attacks, security mechanisms, and security services.
 ### Security attacks
 Security attacks are any attempts by people or entities to gain unauthorised access to a system. They are subdivided into 2 categories:
 - Passive attacks
@@ -110,6 +143,8 @@ Authentication can be achieved by 3 factors, each of which defines a different k
 2. Possession factor - something the user has (e.g. key/OTP)
 3. Inherence factor - something the user is (e.g. fingerprint/face ID)
 Many systems defer use of factors to third parties, prompting the user to log into an external system that verifies their identity before redirecting back to the original page. This is called Federated Identity Management. 
+## Threats
+Threats in a system describe properties that allow attacks on the system to be successful. These threats can be information access threats, which allow attackers to access information that should be unavailable to them, of service threats, which allow attackers to disrupt the use of the system by legitimate users.
 ## Attacks
 Attacks on computer systems come in various forms, but there are many common types that have been identified.
 ### Man-in-the-middle attacks
@@ -121,5 +156,51 @@ A replay attack is a MITM attack where an attacker stores and later re-sends mes
 Replay attacks can be foiled by using sequence numbers and only accepting messages if their sequences are in order (not usually used due to relatively high overhead), using timestamps and only accepting messages received within a certain duration of their sending, or first sending out a dummy value and only accepting messages containing this value.
 ### Impersonation attack
 An impersonation attack involves an attacker posing as another user of the system. This attack breaks authentication and non-repudiation.
+# Basics of Network Security
+A network is any system that permits single applications to run on a collection of separate hosts. The methods by which these hosts communicate is an obvious attack vector for jeopardising the network. 
+## Networks and clients
+Networks can be accessed by users via a terminal or a client. A terminal is a machine that does not do any local processing - it exists simply to interface with the network. A client instead performs local processing, communicating with the network and supplementing this communication with additional processes. 
+A network is often abstracted by a client, such that the machinations of the machines in the network are unknown to the user.
+## Network topology
+Networks can be modelled as a graph, where individual hosts are nodes, and any two hosts that can communicate form an edge. It is not guaranteed that any message will be able to travel along a single edge from source to destination, and so some scheme of passing the message through the network must be devised.
+### Circuit switching
+The easiest scheme is network switching, where the entire message is routed through a particular path in the network, called a circuit. Once a circuit is found, it is retained for the entire communication session, and no other devices have access to the links in the circuit. It is commonly used for voice communication, such as telephone networks. Circuit switching offers reliable speeds, as the connections are only used fro that purpose, but does not scale for large numbers of messages in a network.
+### Packet switching
+Packet switching breaks the message into discrete packets, and sends each down a path to the destination. These paths can change if links in the network become unavailable. Packet switching scales well, as packets from multiple different messages can be sent down the same connections in succession.
+Packet switching creates resource contention. Packets usually move in 'hops' through the network - upon arriving to a host, the host decides the next host the packet should be sent to, and so on. Therefore packets often must wait at a host for a connection to be available. 
+## OSI Network Model
+The Open Systems Interconnection (OSI) model is a standard created by the International Organisation for Standardisation (ISO) that described networked systems. It defines 7 layers, layer 1 being the lowest, of increasing levels of abstraction. Each layer has a dedicated unit of data, called a protocol data unit (PDU).
+1. Physical layer - The lowest level, describes the transmission and reception of raw data over physical channels. PDU of bits or symbols. 
+2. Data link layer - Describes the transmission of data frames between two nodes, including error correction. The data link layer controls the physical transmission and created frames and frame headers. Ethernet operates on this layer. PDU of frames.
+3. Network layer - Describes the routing of data in a multi-node network, with operations such as addressing and traffic control. IP operates on this layer. PDU of packets
+4. Transport layer - Ensures reliable relaying of data between hosts, including operations like acknowledgement and multiplexing. The transport layer also request the repeated transmisison of lost packets. TCP and UDP operate on this layer. PDU of segments or datagrams.
+5. Session layer - Manages communication sessions, allowing the possibility of related back-and-forth transmission between two nodes. No PDU.
+6. Presentation layer - Translates networked data into application-usable form, via decryption, decompression, and character encoding. No PDU.
+7. Application layer - Governs high level protocols for resource sharing, remote access, and more. DNS and HTTPS operate on this layer. No PDU.
+### Layer attacks
+Attacks on networks target specific layers of the OSI:
 
-#cybersecurity
+| Layer           | Attack                                                                                                                                                                                                         |
+| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Application     | Repudiation, data corruption, file system bugs, file transfer exploits, protocol and version rollback attacks                                                                                                  |
+| Presentation    | No common exploits                                                                                                                                                                                             |
+| Session         | Remote Procedure call worms, port mapper exploits                                                                                                                                                              |
+| Transport       | Routing protocol attacks, SYN flooding, sequence number prediction, session hijacking                                                                                                                          |
+| Network         | IP smurfing, IP spoofing, wormhole / black hole / grey hole attack, byzantine errors, flooding, resource consumption, location disclosure, Sybil attacks, jellyfish attacks, fabrication, modification attacks |
+| Data Link       | Traffic analysis, monitoring, MAC disruption, Wired Equivalent Privacy weakness, selfish-node exploits                                                                                                         |
+| Physical        | Jamming, interception, eavesdropping                                                                                                                                                                           |
+| **Multi-layer** | DoS/DDoS attacks, Impersonation, replay attacks, Man-in-the-Middle attacks                                                                                                                                     |
+## Packets and frames
+Frames are blocks of data created by network communication hardware, and contain the source and destination MAC address, as well as the data to be transferred.
+Packets are blocks of data created by software, usually the Internet Protocol (IP). IP packets contain IP addresses and data.
+In a network, a single packet travels from source to destination, but can be carrier by multiple frames depending on the number of routers it travels through.
+The OSI makes a distinction between data links and physical links. Physical links are the connections between any two devices in a network, data links are the paths that frames take consisting of a chain of physical links, and a route is the path a packet takes consisting of multiple data links.
+## Routers, bridges, hubs, and switches
+Many devices exist to connect devices in a network, of varying complexities.
+Routers use IP addresses to forward packets, and connect local networks to the internet.
+Switches connect devices in local networks, routing frames to specific devices based on MAC addresses.
+Hubs are simple devices that send incoming messages to all connected devices. They operate on the physical layer.
+Bridges combine two otherwise separate networks into a single network by relaying frames. They operate in the data link layer.
+## DNS
+The Domain Name System allows a computer to locate a specific domain in the internet. It works by the computer querying a DNS server, which will return either the wanted domain, if in memory, or else return the IP of another server. Usually the query will rise up levels of breadth in a tree of connected servers until the server queried is a parent of the required server, at which point the query will pass down the tree to the wanted IP. An example of this is the following chain: ISP -> root server -> ..org server -> gnu.org, where the root server is the highest server in the tree.
+Historically, DNS was a cleartext (un-encrypted) system using TCP/UDP on port 53 of a device, which was vulnerable to monitoring, redirection, and blocking. 
