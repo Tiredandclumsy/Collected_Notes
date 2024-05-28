@@ -22,6 +22,8 @@
 		- [[#Man-in-the-middle attacks#Eavesdropping|Eavesdropping]]
 		- [[#Man-in-the-middle attacks#Replay attack|Replay attack]]
 	- [[#Attacks#Impersonation attack|Impersonation attack]]
+	- [[#Attacks#Denial-of-Service attack|Denial-of-Service attack]]
+	- [[#Attacks#Protocol attacks|Protocol attacks]]
 - [[#Networks and clients|Networks and clients]]
 - [[#Network topology|Network topology]]
 	- [[#Network topology#Circuit switching|Circuit switching]]
@@ -30,6 +32,37 @@
 	- [[#OSI Network Model#Layer attacks|Layer attacks]]
 - [[#Packets and frames|Packets and frames]]
 - [[#Routers, bridges, hubs, and switches|Routers, bridges, hubs, and switches]]
+- [[#IP and MAC addresses|IP and MAC addresses]]
+	- [[#IP and MAC addresses#IP Spoofing|IP Spoofing]]
+	- [[#IP and MAC addresses#IPsec|IPsec]]
+- [[#SSL|SSL]]
+- [[#TLS|TLS]]
+- [[#HTTP|HTTP]]
+	- [[#HTTP#HTTPS|HTTPS]]
+	- [[#HTTP#Application layer attacks|Application layer attacks]]
+- [[#TCP|TCP]]
+	- [[#TCP#TCP attacks|TCP attacks]]
+		- [[#TCP attacks#SYN flooding|SYN flooding]]
+- [[#DNS|DNS]]
+	- [[#DNS#DNS attacks|DNS attacks]]
+	- [[#DNS#Encrypted DNS|Encrypted DNS]]
+- [[#Smurf attack|Smurf attack]]
+- [[#Jamming|Jamming]]
+- [[#SQL injection|SQL injection]]
+- [[#Cross-site scripting|Cross-site scripting]]
+- [[#Firewalls|Firewalls]]
+	- [[#Firewalls#Policy control|Policy control]]
+	- [[#Firewalls#Types of firewall|Types of firewall]]
+		- [[#Types of firewall#Packet filtering|Packet filtering]]
+		- [[#Types of firewall#Application level|Application level]]
+		- [[#Types of firewall#Stateful inspection|Stateful inspection]]
+		- [[#Types of firewall#Circuit level gateways|Circuit level gateways]]
+		- [[#Types of firewall#Personal firewall|Personal firewall]]
+- [[#Intrusion Detection Systems|Intrusion Detection Systems]]
+	- [[#Intrusion Detection Systems#Types of IDS|Types of IDS]]
+	- [[#Intrusion Detection Systems#IDS responses|IDS responses]]
+	- [[#Intrusion Detection Systems#False results|False results]]
+- [[#Intrusion Prevention Systems|Intrusion Prevention Systems]]
 
 # Basics of cybersecurity
 Cybersecurity describes the practice of protecting computational systems, networks, and programs from malicious interference. It can be broken into information security, which protects data stored on computer systems, and network security, which protects networks and their services from unwanted interference while ensuring that they still perform their required functions.
@@ -156,6 +189,10 @@ A replay attack is a MITM attack where an attacker stores and later re-sends mes
 Replay attacks can be foiled by using sequence numbers and only accepting messages if their sequences are in order (not usually used due to relatively high overhead), using timestamps and only accepting messages received within a certain duration of their sending, or first sending out a dummy value and only accepting messages containing this value.
 ### Impersonation attack
 An impersonation attack involves an attacker posing as another user of the system. This attack breaks authentication and non-repudiation.
+### Denial-of-Service attack
+A Denial-of0Service (DoS) attack is when an attacker attempts to make a resource unavailable to its users. The most common form is a Distributed Denial-of-service (DDoS) attack, where multiple (usually compromised) machines are used to flood a network.
+### Protocol attacks
+A protocol attack is any cyberattack that exploits a feature of a particular internet protocol. 
 # Basics of Network Security
 A network is any system that permits single applications to run on a collection of separate hosts. The methods by which these hosts communicate is an obvious attack vector for jeopardising the network. 
 ## Networks and clients
@@ -201,6 +238,149 @@ Routers use IP addresses to forward packets, and connect local networks to the i
 Switches connect devices in local networks, routing frames to specific devices based on MAC addresses.
 Hubs are simple devices that send incoming messages to all connected devices. They operate on the physical layer.
 Bridges combine two otherwise separate networks into a single network by relaying frames. They operate in the data link layer.
+## IP and MAC addresses
+Internet Protocol (IP) addresses are either 32-bit (IPv4) or 128-bit (IPv6) numerical labels used to route packets through the internet, in the network layer. Medium Access Control (MAC) addresses are 48-bit addresses that allow routing of datagrams to end devices in the data-link layer. 
+The Address Resolution Protocol (ARP) handles the switch between IP and MAC addresses, with routers having ARP tables that match IPs to MAC addresses. These tables are populated by sending requests containing an IP to be added to the table, and the IP of the device storing the table. These propagate through the network, and the device with he requested IP then sends its MAC address to the second IP in the request.
+ARP tables are relatively easy to spoof, as they are updated frequently, so a malicious actor can fulfil ARP requests to redirect network traffic. Static ARP addresses (that aren't forgotten) help frustrate this, and there are software packages that help detect ARP spoofing, but it cannot be prevented. 
+### IP Spoofing
+IP spoofing refers to the creation of IP packets with false source IP addresses in order to impersonate another system.
+IP spoofing can be used to bypass filtering systems such as firewalls, or perform DoS attacks by requesting a large quantity of data while appearing as the victim system.
+### IPsec
+IPsec (Internet Protocol security) is a  standard first defined by the Internet Engineering Taskforce (IETF) in 1995, which was revised in 1998 and 2005.
+IPsec begins with an initialisation phase. This requires both devices to verify the other with a public key, then establishes and further verifies with a shared private key. The phase also includes negotiating security services and mechanisms. The phase is protected in integrity and authenticity, and is governed by the Internet Key Exchange (IKE) module, running on the application layer.
+The standard also includes a data protection phase. This phase uses  symmetric encryption to create a protected tunnel that secures packet flow, ensuring confidentiality, integrity, and authentication. It's implemented by either the Authentication Header (AH) or Encapsulating Security Payload (ESP) sub-protocols. 
+#### Sub-protocols
+There are two sub-protocols of note in IPsec:
+AH (protocol 51) ensures integrity and authentication of origin, and optionally ensures replay detection. It protects the packet content and a section of the header.
+ESP optionally ensures data confidentiality; and integrity, authentication of origin, and replay detection. It only protects the packet content.
+The key exchange protocol (IKE) permits multiple different methods of key exchange depending on the section of IPsec being performed:
+
+| Key exchange method                                                                                          | IPsec stage                                                   |
+| :----------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------ |
+| 3DES-CBC (encryption)<br>HMAC-SHA1  (PRF)<br>HMAC-SHA1-96 (integrity check)<br>1024-bit MODP (DH Group)      | 3DES-CBC (encryption)<br>HMAC-SHA1-96 (integrity)<br>ESP      |
+| AES-128-CBC (encryption)<br>AES-XCBC-PRF-128 (PRF)<br>AES-XCBC-MAC96 (integrity)<br>2048-bit MODP (DH Group) | AES-128-CBC (encryption)<br>AES-XCBC-MAC96 (integrity)<br>ESP |
+Where PRF denotes a pseudo-random function, and MODP denotes a modular exponential function.
+#### IPsec control modes
+IPsec permits two modes of data transfer.
+Transport mode simply wraps the data in a packet and sends it. This protects the packet contents and IPsec defined sections of the header, but leaves the rest of the header unencrypted.
+Tunnel mode takes the transport mode packet and wraps it in another IPsec packet, protecting the entire original packet, leaving only a section of a new IP header unencrypted. This wrapping is usually done by another device, in the context of a VPN.
+#### Security Associations
+Security Associations (SAs) are contracts formed between to devices to specify the parameters of a secure connection. They contain a list of a security protocol (AH or ESP), the status of the optional services for each, encryption algorithms, encryption keys, an initialisation vector, a hash function, an IPsec control mode, and a lifetime for the SA. These parameters are usually combined into three values - one called the Security Parameters Index (SPI), one for the address of the IPsec equipment, and one to define the security protocol (AH or ESP). 
+## VPNs
+A Virtual Private Network uses an IP tunnel to exchange data between parties. This is useful for facilitating communication between parties where security is required, such as within a distributed company, between a company and its partners, etc. They can be used to interconnect LANs via IPsec, or permit remote access into a LAN from a nomad machine using either IPsec or TLS.
+The VPN is created by forming a tunnel - the packets are created as though in a local network, then wrapped in intern-ready IP packets before being sent. They are then unwrapped at the receiving end, allowing local network-like communication over public internet. IPsec and TLS are used to ensure the CIA triad. 
+VPN protocols contain an initialisation phase of authentication, key exchange, and security negotiation, and a data protection phase where negotiated security services are activated.
+VPN gateways (devoices that wrap packets) authenticate each other via public and private key exchange. Users authenticate with gateways via passwords.
+# Clientless/client-based
+A clientless VPN involves the nomad connecting to the gateway directly via an HTML/TLS connection in a browser. This setup is easier to manage and has lower cost, as well as the fact that it does not require the nomad to install a client. However it has restricted access to services, as all communication must be done through the browser.
+A client-based VPN runs on a client program on the nomad's device, which forms an IP/TLS connection to the gateway. This allows access as thought the nomad was part of the local network, but requires installation of an IPsec and/or VPN client on the nomad device depending on use case.
+IPsec is a common solution for VPNs and is heavily optimised for VPN formation, but is heavy to manage due to IKE processes. TLS on the other hand is the most common solution for clientless VPNs, and is lighter on processing, bur limits the use of certain applications.
+### L2TP
+The Layer Two Tunnelling Protocol, first established in 1999, is the standard for forming tunnels in VPNs, specifically VPNs between private networks and nomads. It requires an L2TP client running on the nomad, and a L2TP Network Server (LNS) running within the local network's IPsec gateway.
+L2TP first establishes an IPsec session to protect packets, then authenticates the nomad's device. Then, an L2TP tunnel is established, in which the nomad is given a private address and the user is authenticated.
+Microsoft has its own proprietary standard that supports encryption - the Point to Point Tunnelling Protocol (PPTP).
+## SSL
+The Secure Sockets Layer is the first web encryption standard, released by Netscape in 1995. It encrypts between the application and transport layers, and was the first encryption used by HTTP to form HTTPS. It has now been almost entirely replaced by TLS. The last SSL standard was version 3.0, released in 1996. SSL was officially deprecated in 2015 by the Internet Engineering Taskforce (IETF).
+## TLS
+TLS, or Transport Layer Security, is the current standard for network encryption. 
+TLS requires an initialisation phase to form a connection before communication can take place. The server authenticates the client with its public key certificate, after which security mechanisms and services are negotiated. A secret 'master' key is established, and then communication proper can begin. This phase fulfils integrity and authenticity, and is governed by the TLS Handshake Protocol. Other functions of the handshake include agreeing on the TLS version, replay detection, and detection of message integrity issues. 
+In TLS 1.0-1.2, a data protection phase also occurred, governed by the TLS Record Protocol. This stage breaks the data into fragments, compresses them, encrypts them, and appends a Message Authentication Code to each. This phase used symmetric encryption as protection, and ensured confidentiality, integrity, and authentication.
+Other parts of the TLS protocol include the TLS Change Cipher Spec Protocol, TLS Alert Protocol, and TLS Application Data Protocol.
+Standards that use SSL or TLS are renamed with an additional 'S' - HTTPS, FTPS, etc. 
+The entire TLS exchange is as follows (where -> means client to server, and <- is server to client):
+1. Handshake: ClientHello ->
+2. <- Handshake: ServerHello
+3. <- Handshake: Certificate
+4. <- Handshake: ServerHelloDone
+5. Handshake: ChangeCipherSpec ->
+6. Handshake: ClientFinished ->
+7. <- Handshake: ChangeCipherSpec
+8. <- Handshake: ServerFinished
+9. <- application data transfer ->
+10. Alert: CloseNotify ->
+TLS uses the following possible protocols:
+
+| Key exchange | Encryption algorithm | Hash function |
+| :----------- | :------------------- | :------------ |
+| RSA          | RC4_128              | MD5           |
+| DH_DSS       | 3DES_EDE             | SHA-1         |
+| DH_RSA       | AES_128_CBC          | SHA-256       |
+| DHE_DSS      | AES_256_CBC          |               |
+| DHE_RSA      |                      |               |
+| DH_anon      |                      |               |
+## HTTP
+The Hypertext Transfer Protocol (HTTP) is an asymmetric request-response protocol defining client-server transfer of data. It is a pull protocol, meaning the client sends a request message, prompting data to be sent back by the server. This is in contrast to a push protocol, where the server sends the data without a request.
+It exists on the application layer, utilising TLS in the transport layer to encrypt its communications (forming HTTPS) and IP on the network layer to locate servers and clients.
+HTTP session hijacking involves an attacker injecting a malicious script into a server, which then sends the script to a user as the result of an HTTP request. The script is then executed on the user's system. 
+HTTP session side jacking involves an attacker sniffing the contents of HTTP packets to gain data such as authentication cookies, which can then be used to gain access to the server. This is only possible if a portion of the session is unencrypted, and if the attacker ahs access to the user's wiki network, and so typically occurs on unsecured WIFI hotspots.
+### HTTPS
+HTTPS encrypts HTTP packets using TLS. It encrypts most data in the packet, but leaves the remote address and request URL header.
+### Application layer attacks
+Attacks exploiting HTTP involve sending large volumes of HTTP requests that exhaust a target server's ability to respond. This is a particular application level DDoS attack known as a 'level 7 attack'. Malicious HTTP requests are often hard to filter, and so this attack is difficult to counter.
+## TCP
+Transmission Control Protocol (TCP) is a standard that facilitates reliable, ordered, and error-checked delivery of packets. It operates on the transport layer.
+TCP requires a connection to be set up between the two communicating devices. This involves 3 messages utilising 3 values - SYN and ACK flags (1 bit), and seq and ack values (32 bits). First, the client sends a message with high SYN and some client value of seq. Then the server responds with SYN and ACK high, ack set to the received seq value plus 1, and seq set to some new sever value. Then the client responds finally with ACK high, seq set to the received ack value, and ack set to the received seq value plus 1.
+### TCP attacks
+The handshake involving large entropy of seq and ack values makes TCP sessions very hard to attack once established. However, if the attacker is on the same network as the client, they can sniff the TCP packets and complete the handshake from their machine, forming the communication channel posing as the client's machine, while locking the client out of the handshake. This is called TCP session hijacking. To hijack the session, IP spoofing must be used, since the server checks that all messages in the handshake are from the same IP.
+#### SYN flooding
+An attacker can perform a DoS attack on a server by sending multiple SYN requests to a server. The server responds to these with SYN-ACK messages, and stores the required values in memory to verify the response of each. This use of memory leads to the server being overwhelmed, and rejecting any other SYN requests. If the attacker never sends any ACK responses to form a connection then the server remains unavailable. usually attackers use multiple spoofed IP addresses to obfuscate their identity and make blocking IPs more difficult.
+SYN flooding can be tackled in multiple ways. Ingress filtering describes blocking incoming packets at edge devices (routers, firewalls, etc) based on the contents of their headers, usually the origin IP. Unicast Reverse Path (uRPF) checks allow edge devices to reference IPs on a table and ensure that packets came from the expected 'ingress interface', meaning the traffic was previously routed through the expected section of the network. This becomes more difficult when multiple paths are possible, or when the best route from node A to B is different from the best route from B to A (asymmetric routing). Finally, a SYN cookie system for TCP can be used, that encodes the server seq value with some function of the server and connection's traits, and the ack response can be referenced against this value without having to store it, with the seq value discarded. This allows any number of SYN-ACK messages to be pending at once.
 ## DNS
-The Domain Name System allows a computer to locate a specific domain in the internet. It works by the computer querying a DNS server, which will return either the wanted domain, if in memory, or else return the IP of another server. Usually the query will rise up levels of breadth in a tree of connected servers until the server queried is a parent of the required server, at which point the query will pass down the tree to the wanted IP. An example of this is the following chain: ISP -> root server -> ..org server -> gnu.org, where the root server is the highest server in the tree.
+The Domain Name System allows a computer to locate a specific domain in the internet. It works by the computer querying a DNS server, which will return either the wanted domain, if in memory, or else return the IP of another server. Usually the query will rise up levels of breadth in a tree of connected servers until the server queried is a parent of the required server, at which point the query will pass down the tree to the wanted IP. An example of this is the following chain: ISP -> root server -> .org server -> gnu.org, where the root server is the highest server in the tree.
 Historically, DNS was a cleartext (un-encrypted) system using TCP/UDP on port 53 of a device, which was vulnerable to monitoring, redirection, and blocking. 
+### DNS attacks
+DNS is therefore a vulnerable target for eavesdropping, especially as the entire request information is available at all levels of resolution. Posing as a DNS server and maliciously resolving requests is called DNS hijacking. 
+DNS also uses caches, where commonly requested domains are stored in root servers to speed up resolution. This means malicious actors can pose as a DNS server and fulfil a root's request, where the malicious request is then cached and passed to all users of the root server without further intervention of the attacker. This attack is called DNS cache poisoning. 
+DNS amplification attacks are DDoS attacks that make repeated DNS requests with a spoofed IP, meaning DNS resolvers send the resulting addresses to a target machine, overwhelming it.
+### Encrypted DNS
+The first encrypted system for DNS was DNS over TLS (DoT), released in 2016. It uses the Transport Layer Security protocol to wrap DNS packets, and sends them on port 853. This system established a secure channel between the client and any used resolver servers, preventing plaintext eavesdropping. 
+DNS over HTTPS (DoH) was introduced in 2018 as an alternative to DoT. It uses HTTPS to encode the DNS packets, sending them on port 443 like all HTTPS requests. HTTPS utilised TLS in its encryption.
+## Smurf attack
+A smurf attack is a specific DDoS attack in which multiple Internet Control Message protocol (ICMP) packets are sent to a computer network, with each packet listing the same victim IP address as its origin. The ICMP dictates that packets should be acknowledged with a return packet by default, and so the network responds by sending a large number of packets to the victim's IP, flooding it with traffic. 
+## Jamming
+Jamming involves positioning a transmitter to add interference to a communication channel, usually by broadcasting noise on specific wireless frequency bands. This increases error rate of transmission to prevent useful communication between devices. It operates on the physical layer. 
+# Basics of internet security
+Internet security, also called web security, is the study of systems to keep users and devices safe from cyberattacks when connected to the internet. Threats that internet security can help protect against include phishing, SQL injection, cross-site scripting, and more.
+## SQL injection
+SQL injection involves using a client-side interface with a server to 'inject' and run malicious SQL queries, causing the server to respond with unintended data.
+## Cross-site scripting
+Cross-site scripting (XSS) involves an attacker loading malicious code onto a website, which is downloaded and executed on a victim's machine when the website is loaded. Most simply, it involves appending the URL of the malicious code as message entry to the end of the original website URL.
+## Firewalls
+Firewalls are systems that filter traffic entering a pre-defined internal network. They usually run on dedicated devices to maximise performance and minimise possible security breaches. Firewalls either permit all traffic that is not explicitly forbidden (default permit), or vice verse (default deny). 
+Firewalls provide a single focal point for network monitoring and access control, and layers of firewalls can isolate discovered threats to subsections of the network. However, they cannot protect against attacks that have already passed through them, new threats that are not yet blocked, attacks that do not enter the network through the internet or enter through a trusted source, and they cannot provide protection against legitimate malicious users.
+Firewalls can be stacked, creating multiple levels of access control. This can be used to provide protected internal networks for more secure data or higher profile users. 
+Firewalls can also keep logs of traffic for later inspection.
+### Policy control
+Firewalls can enforce control in three ways:
+- Service control - determining which internet services can be accessed
+- Direction control - determining which direction internet services are permitted to act in
+- User control - determining who can access which internet services (usually via IP)
+### Types of firewall
+There are different types of firewall based on OSI level, state memory, and specific function.
+#### Packet filtering
+Packet filtering is the simplest kind of firewall, and is often very effective. It works on the network layer, blocking based on IP address and transport protocol (e.g. blocking insecure HTTP packets). They are stateless, and usually have fast processing speeds. However, they lack upper-layer functionality such as blocking specific application functions, and don't support advanced user authentication schemes.
+#### Application level
+Also called an application proxy, and application level firewall relays and filters application information to users. They can offer advanced authentication schemes giving a high level of security, and their abstraction makes them easy to understand, but they suffer additional processing overhead and can affect network performance.
+#### Stateful inspection
+Stateful inspection firewalls maintain state information from one packet to the next in the scrutinised data stream. This allows the foiling of attacks that are split into multiple packets in an attempt to exploit the fact that TCP packets arrive in any order. A stateful inspection firewall can record and reconstruct the message from multiple out-of-order packets to identify and prevent the attack.
+#### Circuit level gateways
+A circuit-level gateway, or circuit-level proxy, prevents end-to-end TCP connections from forming, and instead forms TCP connections between it and both communicating parties, permitting additional regulation of permitted connections. Circuit-0level gateways can be standalone, or act as a service provided by an application level firewall. 
+#### Personal firewall
+A firewall-like program can be run on a single device, which blocks certain incoming traffic packets based on predefined rules. These programs are personal firewalls, and can make up for shortfalls in network firewalls.
+## Intrusion Detection Systems
+Intrusion Detection Systems (IDSs) monitor activity on a network to identify suspicious or malicious events. They can also assess the integrity of systems and files, notice violation of user policy, analyse user activity for suspicious behaviour, and correct system configuration vulnerabilities, amongst other functionality. 
+IDSs should be able to react in a timely fashion to attacks, identify the precursors to more serious threats, discover the perpetrator of attacks, reveal attack patterns, and produce convincing evidence to motivate further action.
+### Types of IDS
+IDS that have a predefined pattern of malicious activity to flag are 'signature based' while those that build a model of malicious behaviour are 'heuristic'.
+A network-based IDs is deployed on a dedicated machine and monitors the entire network, but a host-based IDS runs as a process on a host machine and acts on traffic into and on that machine.
+IDSs can also act top report any behaviour that is seen as malicious (and default to not reporting), which leads to a Misuse Detection System, or report any behaviour outside of what is deemed normal (defaulting to reporting), leading to an Anomaly Detection System. Current IDS design trends are shifting towards a hybrid of these approaches.
+### IDS responses
+When an IDS flags malicious behaviour, it had a set process to respond. The responses tend to fall under three categories:
+- Collect data / monitor threat
+- Protect network and reduce exposure
+- Alert a human user
+### False results
+IDSs can make two types of false error - a type I error (false positive) or a type II error (false negative). Type I errors erode trust in the IDS, but type II errors lead to undetected attacks.
+The detection rate of an IDS is defined as the proportion of attacks that were detected: $\text{DR} = \cfrac {\text{TP}}{\text{TP}+\text{FN}}$, and the precision is the proportion of detections that found attacks: $\text{Precision} = \cfrac {\text{TP}}{\text{TP}+\text{FP}}$. An IDS should seek to minimise these values.
+## Intrusion Prevention Systems
+Intrusion Prevention Systems (IPSs) are a combination of a firewall and IDS. They offer the ability of the two systems to work together, with the IDS relaying information to firewalls to contain attacks and prevent future attacks with similar patterns.
