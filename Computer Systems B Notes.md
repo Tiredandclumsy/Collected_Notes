@@ -35,6 +35,11 @@
 - [[#IP and MAC addresses|IP and MAC addresses]]
 	- [[#IP and MAC addresses#IP Spoofing|IP Spoofing]]
 	- [[#IP and MAC addresses#IPsec|IPsec]]
+		- [[#IPsec#Sub-protocols|Sub-protocols]]
+		- [[#IPsec#IPsec control modes|IPsec control modes]]
+		- [[#IPsec#Security Associations|Security Associations]]
+- [[#VPNs|VPNs]]
+	- [[#VPNs#L2TP|L2TP]]
 - [[#SSL|SSL]]
 - [[#TLS|TLS]]
 - [[#HTTP|HTTP]]
@@ -63,7 +68,33 @@
 	- [[#Intrusion Detection Systems#IDS responses|IDS responses]]
 	- [[#Intrusion Detection Systems#False results|False results]]
 - [[#Intrusion Prevention Systems|Intrusion Prevention Systems]]
-
+- [[#Memory corruption bugs|Memory corruption bugs]]
+- [[#Pointers|Pointers]]
+- [[#Memory safety|Memory safety]]
+- [[#Safety in C|Safety in C]]
+- [[#Buffer overflow|Buffer overflow]]
+- [[#Format string errors|Format string errors]]
+	- [[#Format string errors#%n|%n]]
+- [[#Privilege levels|Privilege levels]]
+	- [[#Privilege levels#Processor|Processor]]
+	- [[#Privilege levels#Memory|Memory]]
+	- [[#Privilege levels#Changing levels|Changing levels]]
+		- [[#Changing levels#Events|Events]]
+- [[#Abstraction|Abstraction]]
+	- [[#Abstraction#Processes and Threads|Processes and Threads]]
+- [[#Memory layout|Memory layout]]
+- [[#Virtual memory|Virtual memory]]
+	- [[#Virtual memory#MMU|MMU]]
+	- [[#Virtual memory#Page faults|Page faults]]
+		- [[#Page faults#Replacement policies|Replacement policies]]
+- [[#History of operating systems|History of operating systems]]
+	- [[#History of operating systems#Phase 0 - No OSes (1940-1955)|Phase 0 - No OSes (1940-1955)]]
+	- [[#History of operating systems#Phase 1: Batch monitors (1950-1970)|Phase 1: Batch monitors (1950-1970)]]
+	- [[#History of operating systems#Phase 2: Multiple users (1970-1980)|Phase 2: Multiple users (1970-1980)]]
+		- [[#Phase 2: Multiple users (1970-1980)#UNIX|UNIX]]
+- [[#Phase 3: Cheaper hardware (1980-1990)|Phase 3: Cheaper hardware (1980-1990)]]
+- [[#Phase 4: Networked systems (1990-)|Phase 4: Networked systems (1990-)]]
+- [[#Phase 5: Something new (????-????)|Phase 5: Something new (????-????)]]
 # Basics of cybersecurity
 Cybersecurity describes the practice of protecting computational systems, networks, and programs from malicious interference. It can be broken into information security, which protects data stored on computer systems, and network security, which protects networks and their services from unwanted interference while ensuring that they still perform their required functions.
 ## CIA Triad
@@ -384,3 +415,91 @@ IDSs can make two types of false error - a type I error (false positive) or a ty
 The detection rate of an IDS is defined as the proportion of attacks that were detected: $\text{DR} = \cfrac {\text{TP}}{\text{TP}+\text{FN}}$, and the precision is the proportion of detections that found attacks: $\text{Precision} = \cfrac {\text{TP}}{\text{TP}+\text{FP}}$. An IDS should seek to minimise these values.
 ## Intrusion Prevention Systems
 Intrusion Prevention Systems (IPSs) are a combination of a firewall and IDS. They offer the ability of the two systems to work together, with the IDS relaying information to firewalls to contain attacks and prevent future attacks with similar patterns.
+# Basics of Software Security
+Software security involves ensuring that programs do not violate the security principles of the data they interact with.
+## Memory corruption bugs
+In memory unsafe languages, code can be written that allows the modification of memory beyond intended specifications. Any bug in software that permits this modification is said to have a memory bug. Memory corruption bugs can lead to arbitrary read and write, as well has control flow hijack and corruption.
+## Pointers
+Pointers in C, as well as pointer abstractions like objects in Kava, are prone to cause memory bugs. In general, once the user has managed to get a pointer indexing a memory location that the pointer is not designed to, a memory bug has occurred.
+## Memory safety
+Memory safety must hold in two regards:
+- Spatial safety - pointers must not access locations outside the bounds of allocated objects. Violation of spatial safety includes attacks like stack smashing. 
+- Temporal safety - pointers must not be used to reference objects that have previously been deallocated. Violation of temporal safety includes attacks like heap overflow.
+## Safety in C
+Indexing an array with a negative value in C gets a warning, but is permitted by the C standard and so compiles and runs, causing a spatial error.
+Additionally, functions such as `gets()` and `strcpy()` can lead to buffer vulnerabilities, and so throw warnings when compiled. `gets()` copies input from the user into memory, and `strcpy()` copies an input string into a specific array. Safer versions of these functions, `fgets()` and `strncpy()` respectively, are now implemented in most C compilers.
+## Buffer overflow
+Buffer overflow is an old, but still very common, cause of vulnerabilities, where more data is placed input into a system than anticipated, leading to memory overwriting. 
+Many locations in memory are predictable, and so it is relatively easy given a buffer exploit to write executable code to the stack, for example. 
+Modern CPUs have privilege levels that prevent programs from writing to sections of memory they should not have access to. However this can be circumvented with libc or ROP. To help with these exploits there are a few measures - stack canaries are values placed before the return address that are investigated to ensure they have not changed due to buffer overflow, and shadow stacks are copies of the main stack with return addresses that can be cross-referenced to ensure consistency.
+## Format string errors
+Format strings consist of normal characters and conversion specifiers. When passed to a formatted output function such as `printf()` the conversion specifiers change based on a set of instructions and the other inputs to the function, creating a string of normal characters. Conversion characters begin with a `%` sign, and are mapped to inputs left-to-right. If there are not enough arguments for all specifiers the results are undefined, and if there are too many the additional inputs are rejected.
+Functions `sprintf()` and `vsprintf()` assume an arbitrarily large number of conversion specifiers, each accepting arbitrarily large input, and so it is often impossible to assure that the output string will fit within any allocated memory space.
+### %n
+The `%n` specifier is an outlier, in that it does not alter the output string, but instead writes to memory. Its corresponding additional input is a numerical pointer, and the `%n` specifier causes the number of previously printed characters to be stored in this memory location. This memory writing, along with careful input selection, can permit arbitrary addresses after the stack pointer to be written to. If these addresses are variables then data corruption can occur, and if they are return addresses then data flow corruption and arbitrary code execution can occur.
+# Operating Systems
+Operating Systems (OSes) are packages of software that manage computer hardware resources. In general, they are programs that implement multiplexing and abstraction of hardware - multiplexing allows multiple users to make use of the same set of hardware resources, and abstractions simplify interaction with hardware resources by defining rules under which the hardware can be interacted with.
+## Privilege levels
+### Processor
+Operating Systems also exist as a boundary that protects hardware and low-level software interfaces from misuse by programs and applications. This is done through privilege levels -  modern processors have at least 2 levels: a user space where regular programs run, and a kernel mode that runs the operating system and allows it to implement memory protections. Processor modes dictate which instructions can execute, how addresses are translated from virtual memory, and what memory addresses are permitted to be accessed.
+x86 specifies 4 modes. Ring 0 is the most privileged and runs the kernel, rings 1 and 2 are rarely used and exist to run third party drivers or virtual monitors, and ring 3 handles all other processes. 
+MIPS (Microprocessor without Interlocked Pipelined Stages) defines a standard two-mode processor - user mode can access CPU registers and a uniform virtual memory space, whereas kernel mode can access memory mapping hardware and spatial registers.
+### Memory
+Memory also has a concept of privilege levels. Each segment of memory is given a level 1 to 3, which is stored in the processor's CPL (Current Privilege Level register) when an instruction is read from that segment. The instruction is then executed if the CPL is is less than or equal to the current IOPL, which is a flag set by programs running on ring 0.
+### Changing levels
+The changing of privilege levels is tackled in different ways by different processors and systems:
+The Sleeping Beauty approach exists in the lowest privilege mode until some event occurs that 'wakes' the kernel and raises the privilege. These events include system calls, traps or interrupts. 
+The Alarm Clock approach sets a timer when the system drops from kernel mode, and raises an interrupt once a certain amount of time has passed, where the system returns to kernel mode and deals with any required tasks.
+#### Events
+A system call is a method of permitting interaction between programs and the operating system. The functionality of the OS is abstracted into an API that programs use when making a system call.
+A trap is triggered by an exception or error in a process, usually on conditions such as dividing by zero, hitting a breakpoint, or accessing an invalid memory location. Once th cause of the exception has been handled, the processor returns to its previous privilege level.
+An interrupt is a signal from hardware or software that demands OS attention. It differs from a trap in that it can be asynchronous, and it not handled as part of the program that caused it. Since they can be caused by hardware, they may not have any effect on the currently running process.
+## Abstraction
+Abstraction, in terms of operating systems, refers to the simplification of hardware interaction by an interface separating policy (what is accomplished by the interface) from mechanism (how the interface works). This hides undesirable properties, adds new capabilities, and organises information.
+For example, threads are an OS abstraction of the CPU, address space is an OS abstraction of physical memory, and files are an OS abstraction of the disk. Files specifically help hid the undesirable properties of fragmentation and storage failure, add organise via directories, and add additional features of ownership, RWX permission, filetype, access time logs, and more.
+### Processes and Threads
+Threads and processes both abstract functions of the CPU, but are not the same. Threads describe discrete sections of the CPU used to run tasks, and processes describe collections of tasks that achieve the same goal. Processes consist of CPU resources as well as relevant files and memory locations. A process therefore contains threads, and threads belong to a process. A process is said to be running if at least one of its threads are running.
+An example of a process is a browser - it has multiple threads for processing interface events, drawing to the screen, loading web page information, etc; memory locations for the executable code, shared libraries such as TLS/SSL used to process internet data, dynamically allocated memory for variables, etc; and files on disk open including fonts and config files.
+## Memory layout
+A C program has an allocated amount of memory defined by a low address and a high address. From the low address up, there are the following blocks:
+- Text - stores the code of the program
+- Initialised data - contains global variables, static variables, and values of constants
+- Uninitialised data - contains any variables not initialised, as this section is initialised to all 0s by the kernel before execution
+- Heap - location of dynamic memory allocation, managed by `malloc()`, `realloc()`, and `free()`. Generally grows into larger memory values - 'grows up'.
+- Stack - the stack is a dynamic LIFO structure that stores return values and automatic variables. Its current size is defined by a stack pointer, and in x86 it grows towards lower memory values - 'grows down'. 
+When heap and stack pointers meet, the memory of the program is used up. If multiple programs are owned by the same process, then each get their own stack, but heap memory is shared. 
+## Virtual memory
+Physical memory is finite, and shared between all processes. Some system must be put in place to avoid processes writing to other processes' memory, and this system is the OS. The OS allocates each process a section of virtual memory (in MIPS virtual memory is allocated in 32-bit blocks) which holds data, code, and stacks for the process. No two sections of virtual memory overlap.
+### MMU
+The MMU is a hardware module that translates virtual memory addresses (generates by processes) into physical memory addresses  (given to the RAM). It is only configurable by the kernel. 
+Early attempts at this mapping defined a base and bound - a start location and a size of the block. This allowed different sizes of memory space, easy conversion to physical addresses, and simple insurance of isolation. However, it wasted any space within the block that was not used (like space between stack and heap), did not support RWX privilege, and only allowed memory sharing between two processes via overlap. 
+Another option is segmentation. This defines a base, bound, and RWX permission set for a program's code, static data, heap, and stack. This allows any number of programs to share physical memory, while preventing overwriting, and wastes less memory than base and bound. However, if the actual memory needed is small then more memory can be used storing the mapping than is actually needed. 
+Modern systems use a scheme known as pages. Memory is split into blocks, called pages, and each is addressed with a number and an offset determining the location within the page. Pages are small enough to not waste space and to be practical to quantise all memory on the device. However, their size comes with the drawback of their numbers - small pages mean lots of pages to keep track of, and bookkeeping therefore becomes more complex.
+Pages can be swapped from RAM to disk, and moved back when needed, creating a virtual memory that is much larger than the physical memory available. 
+### Page faults
+When the MMU attempts to access a page that is on disk and not memory, it raises an exception called a page fault. The kernel then swaps the requested page from disk into memory, evicting another page if necessary, before deferring back to the MMU so it can attempt to access the page again. Interacting with disk is slow - around 1000 times slower than RAM, and so page faults occurring every $n$ accesses results in a system $1000^{\frac 1 n}$ times slower than it could be. Thus page faults must be minimised. This is done by making the replacement policy (deciding which pages to evict to make way for a new one) as optimal as possible.
+#### Replacement policies
+First In First Out (FIFO) evicts the page that has been in memory the longest. 
+Least Recently Used (LRU) evicts the page that has not been referenced for the longest.
+MIN is the ideal scheme, which evicts the page that will not be needed for the longest. However it cannot be completely implemented in practice. 
+A Second Chance policy, also known as a clock policy is a practical middle-ground, where a used bit is added to the page table for each page. It is set to 1 by the MMU when the page is first put up for evicting, and set to 0 by the kernel when the page is accessed. If a page with a used bit of 1 is inspected for eviction again, it is evicted.
+## History of operating systems
+### Phase 0 - No OSes (1940-1955)
+At this stage, computers are experimental and exotic machines. They are programmed in machine code with plugboards and/or punch cards, and are intended for large or repetitive calculations. People begin developing libraries of code to share for common tasks.
+### Phase 1: Batch monitors (1950-1970)
+Computers are first given terminals, and basic OSes. These are batch monitors, that load a task that a user has specified, run it, and then load the next task. If a program fails it is saved to memory, but computers begin to gain the ability to move on from failed programs and load the next task. Batch monitors allow efficient use of hardware.
+As this phase develops, it becomes apparent that serial task management is not sufficient. Short jobs are continually stuck behind long ones, and there is no memory protection between jobs. Hardware is therefore developed that permits memory protection (separation of code and data), multiple users on one system, and scheduling. OS design forms as an area of research. OS/360 is released in 1964 - the first operating system to be able to run on multiple different designs of machine.
+At this stage programming was still done in machine code, and so operating systems were enormously complicated programs. Debugging was very difficult, both when writing custom programs and when issues arose with an OS.
+### Phase 2: Multiple users (1970-1980)
+Operating systems at this stage were helping to increase productivity, and allowing multiple users to work one machine. Terminals began to be given to each user, and and file systems start to be developed. 
+Two important operating systems emerge in this time. Compatible Time Sharing System (CTSS) is first released by MIT in 1963. It pioneered research on scheduling, but had shortfalls prompting further development. This development came in a collaboration with MIT, Bell Labs, and General Electric with the release of Multics (Multiplexed Information and Computing Service). Multics was the first system to use hierarchical file systems, and treated external devices as files. It was intended to run on a single large system, allowing users to buy computing power like electricity, as this was the prediction for how people would interact with computing systems.
+#### UNIX
+Frustrated during the development of Multics by its size and complexity, Ken Thompson, Dennis Ritchie, Douglass Mcllroy, and Joe Ossanna of Bell Labs began to develop their own OS. Billed as a single task system, the team coined the name UNIX in 1970, for Uniplexed Information and Computing Service. Originally written in assembly, UNIX was rewritten in C for version 4 in 1973. One key goal was the idea of portability, allowing the system to be installed on any machine.
+Universities were given UNIX's codebase for research, and Berkeley added virtual memory support. Then, UNIX became a commercial OS.
+UNIX pioneered writing OSes in 'high level' languages (C), making portable OSes, mountable file systems, and more.
+## Phase 3: Cheaper hardware (1980-1990)
+Thinking began to shift from multi-user systems as hardware became cheaper, and personal computers became feasible. The Control Program/Monitor (CP/M) OS had been in development for around 6 years when IBM realised that it was too far behind schedule to release on their new machines. They approached Bill Gates, who bought and adapted a previous clone of CM/P called 86-DOS that was made by Seattle computer Products to run on 8086 processors. The newly adapted OS was called MS-DOS (Microsoft Disk Operating System), and used the FAT32 file system instead of CM/P's proprietary one while still being able to run CM/P programs. MS-DOS being shipped on IBS machines meant that as IBM advanced their hardware, Microsoft grew in market share and began to outstrip CM/P's popularity. This is the dawn of the current computer age. 
+## Phase 4: Networked systems (1990-)
+In the modern age, connectivity is of most significance. Networked applications such as email and browsers enable commerce, and users wish to share data quickly between one another. Memory protection and multiprogramming is now less important on individual machines, but has become much more important on servers as cloud storage and computing has gained popularity. Clusters, grids, distributed OSes and the cloud have meant a surge in network-based architectures.
+## Phase 5: Something new (????-????)
+With the increased prevalence of mobile devices, mobile operating systems, the Internet of Things, many researchers believe that a substantial enough shift has occurred for a new phase of technological development to be defined.
